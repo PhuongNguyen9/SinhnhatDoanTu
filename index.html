@@ -514,6 +514,20 @@ button{touch-action:manipulation}
 }
 /* ===== end mobile refinement v2 ===== */
 
+
+/* Fix envelope date overlapping card text on mobile */
+@media(max-width:700px){
+ .envelope-stage{min-height:auto;padding:22px 14px;overflow:hidden}
+ .envelope-card{min-height:0;padding:38px 22px 26px;gap:0}
+ .envelope-card .envelope-top{position:relative;z-index:1;letter-spacing:.16em}
+ .envelope-card .envelope-seal{position:relative;z-index:1;margin:18px 0 10px}
+ .envelope-card .envelope-title,
+ .envelope-card p,
+ .envelope-card .btn{position:relative;z-index:1}
+ .envelope-card .envelope-bottom{position:relative;left:auto;right:auto;bottom:auto;display:block;margin-top:20px;padding-top:12px;border-top:1px solid #e5d2b3;width:100%;font-size:11px;line-height:1.5;letter-spacing:.16em;z-index:1}
+ .envelope-decor{display:none}
+}
+
 </style></head>
 <body>
 <header class="topbar"><div><div class="brand">✦ BIRTHDAY QUEST 28</div><small>Ka tự tay chuẩn bị một chút bất ngờ ♥</small></div><button class="music-btn" onclick="toggleMusic()">♫ Nhạc của tụi mình: <span id="musicState">TẮT</span></button></header><div id="musicPlayer" aria-hidden="true" style="position:fixed;width:0;height:0;overflow:hidden">
