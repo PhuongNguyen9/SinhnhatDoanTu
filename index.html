@@ -350,6 +350,98 @@ body{background:radial-gradient(circle at 8% 18%,#f6e7cf66,transparent 24%),radi
   .party-light-bulbs i,.party-banner{animation:none!important}
 }
 
+
+/* ===== MOBILE RESPONSIVE POLISH · Birthday Quest 28 ===== */
+*,*::before,*::after{box-sizing:border-box}
+html{width:100%;max-width:100%;overflow-x:clip;scroll-padding-top:76px}
+body{width:100%;max-width:100%;overflow-x:clip;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+img,video,canvas,svg{max-width:100%}
+img,video{height:auto}
+button,a{-webkit-tap-highlight-color:transparent}
+button{touch-action:manipulation}
+@media(max-width:900px){
+ .topbar{padding:10px 16px;gap:10px;flex-wrap:wrap}
+ .hero-inner,.intro-grid,.playroom-grid{grid-template-columns:minmax(0,1fr)!important}
+ .hero-inner{gap:22px}
+ .hero-photo{width:min(100%,430px);margin-inline:auto}
+ .intro-grid{gap:18px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .wheel-stage{gap:18px}
+}
+@media(max-width:600px){
+ html{scroll-padding-top:64px}
+ body{font-size:15px;line-height:1.65}
+ .topbar{position:relative;padding:9px 12px;justify-content:center}
+ .topbar>*{max-width:100%}
+ .music-btn{max-width:100%;font-size:12px;padding:9px 12px}
+ .hero{padding:30px 16px 34px}
+ .hero-inner{width:100%;gap:20px}
+ .hero h1{font-size:clamp(32px,9vw,48px);line-height:1.12;overflow-wrap:anywhere}
+ .hero p{font-size:14px}
+ .hero-photo{width:100%;max-width:360px}
+ .btn-row{display:flex;flex-wrap:wrap;gap:10px}
+ .btn,.btn-row button{min-height:44px;max-width:100%;white-space:normal}
+ section{padding:38px 14px!important}
+ .section-head{margin-bottom:20px}
+ .section-head h2{font-size:clamp(24px,7vw,34px);line-height:1.2}
+ .section-head p{font-size:14px}
+ .intro-grid{display:grid;grid-template-columns:minmax(0,1fr)!important;gap:16px}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .photo{min-width:0}
+ .photo img{width:100%;height:100%;object-fit:cover}
+ .video-card{min-width:0;width:100%}
+ .video-card video{width:100%;display:block;object-fit:contain}
+ .quiz,.terminal,.cake-wrap,.secret,.letter,.puzzle-card,.play-card,.envelope-card,.xin-sam-card{width:100%;max-width:100%;min-width:0;padding:18px 14px}
+ .answers{display:grid;grid-template-columns:minmax(0,1fr);gap:9px}
+ .answers button,.quiz button{min-height:46px;white-space:normal;text-align:left}
+ .terminal{overflow-wrap:anywhere}
+ .cake-wrap{padding:18px 10px}
+ .cake-scene{width:100%;max-width:100%;overflow:visible}
+ .birthday-cake{transform:scale(.88);transform-origin:center}
+ .cake-candles{max-width:100%}
+ .secret,.letter{overflow-wrap:anywhere}
+ .playroom-grid{grid-template-columns:minmax(0,1fr)!important;gap:14px}
+ .play-card{min-width:0}
+ .memory-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+ .memory-card{width:100%;min-width:0;aspect-ratio:3/4}
+ .memory-face img{width:100%;height:100%;object-fit:cover}
+ .memory-stats{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+ .wheel-stage{display:flex;flex-direction:column;align-items:center;gap:14px}
+ .wish-wheel{width:min(78vw,310px);height:auto;aspect-ratio:1}
+ .wheel-legend{width:100%;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .envelope-stage{width:100%;padding-inline:4px}
+ .envelope-card{width:100%;max-width:100%}
+ .letter-nav{display:flex;flex-wrap:wrap;gap:8px}
+ .gallery-pager{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+ .gallery-pager button{min-height:42px}
+ .cake-video-modal,.farewell-video{padding:12px;align-items:center}
+ .cake-video-card,.farewell-video-inner{width:100%;max-width:100%;padding:18px 14px}
+ .farewell-video video{width:100%;height:auto;max-height:55vh;object-fit:contain}
+ .farewell-video-actions{display:grid;grid-template-columns:1fr;gap:9px}
+ .farewell-video-actions button{width:100%;min-height:44px}
+ .birthday-finale{padding:14px;overflow-y:auto}
+ .finale-party-lights{transform:scale(.86);transform-origin:top center}
+ .finale-card{width:100%;max-width:520px;margin:100px auto 28px;padding:24px 16px}
+ .finale-card h2{font-size:clamp(27px,8vw,40px);line-height:1.15}
+ .finale-wish,.finale-love{font-size:14px}
+ .finale-close{width:100%;min-height:48px;white-space:normal}
+ .finale-bottom{font-size:12px;text-align:center;white-space:normal}
+}
+@media(max-width:380px){
+ .grid{grid-template-columns:minmax(0,1fr)}
+ .memory-grid{gap:6px}
+ .memory-card{border-radius:10px}
+ .hero{padding-inline:12px}
+ section{padding-inline:12px!important}
+ .wheel-legend{grid-template-columns:minmax(0,1fr)}
+ .finale-card{padding:20px 12px}
+}
+.lightbox,.cake-video-modal,.farewell-video,.birthday-finale{max-width:100vw}
+@media(prefers-reduced-motion:reduce){
+ *,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+/* ===== end mobile polish ===== */
+
 </style></head>
 <body>
 <header class="topbar"><div><div class="brand">✦ BIRTHDAY QUEST 28</div><small>Ka tự tay chuẩn bị một chút bất ngờ ♥</small></div><button class="music-btn" onclick="toggleMusic()">♫ Nhạc của tụi mình: <span id="musicState">TẮT</span></button></header><div id="musicPlayer" aria-hidden="true" style="position:fixed;width:0;height:0;overflow:hidden">
