@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#7d2026">
+<title>Birthday Quest 28 · Lê Tuấn Doãn Tú</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--wine:#76232b;--red:#a83a32;--gold:#c69a45;--gold2:#e7c77e;--cream:#fff8ed;--paper:#fffdf8;--ink:#382b27;--muted:#806d61;--line:#eadbc5;--shadow:0 18px 55px #4b20151c}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'Be Vietnam Pro',sans-serif}button,input{font:inherit}button{cursor:pointer}.serif{font-family:'Playfair Display',serif}.topbar{position:sticky;top:0;z-index:10;background:#fff9f0eF;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:12px clamp(16px,5vw,64px)}.brand{font-weight:800;letter-spacing:.08em;color:var(--wine);font-size:12px}.topbar small{color:var(--muted)}.music-btn{border:1px solid var(--gold);background:transparent;color:var(--wine);border-radius:30px;padding:9px 14px;font-size:12px;font-weight:700}
+main{max-width:1080px;margin:auto;padding:26px 18px 80px}.page{display:none;animation:fade .5s ease}.page.active{display:block}@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}.hero{min-height:76vh;display:grid;place-items:center;text-align:center;position:relative;overflow:hidden;border:1px solid var(--line);border-radius:28px;background:radial-gradient(circle at 15% 15%,#f1d9a9 0,transparent 27%),radial-gradient(circle at 85% 80%,#e9c9b6 0,transparent 30%),linear-gradient(135deg,#fffdf7,#f8ead6);box-shadow:var(--shadow);padding:44px 22px}.hero:before,.hero:after{content:"✦";position:absolute;color:#c99d4c;font-size:50px;opacity:.4}.hero:before{top:8%;left:8%}.hero:after{bottom:9%;right:9%}.hero-inner{max-width:660px;position:relative;z-index:1}.eyebrow{color:var(--gold);letter-spacing:.25em;font-size:11px;font-weight:800;text-transform:uppercase}.hero h1{font:700 clamp(42px,8vw,82px)/1.04 'Playfair Display',serif;color:var(--wine);margin:18px 0}.hero h1 span{display:block;color:var(--gold);font-size:.55em;margin-top:12px}.hero p{color:var(--muted);line-height:1.9}.hero-photo{width:116px;height:116px;border-radius:50%;object-fit:cover;border:5px solid white;box-shadow:0 8px 30px #7b3a2930;margin:20px auto 4px}.btn{border:0;border-radius:30px;background:var(--wine);color:#fff9ef;padding:14px 24px;font-weight:700;box-shadow:0 8px 20px #76232b30;transition:.2s}.btn:hover{transform:translateY(-2px);background:#922e35}.btn.secondary{background:transparent;border:1px solid var(--gold);color:var(--wine);box-shadow:none}.btn-row{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:24px}.section-head{text-align:center;margin:10px 0 30px}.section-head .eyebrow{margin-bottom:10px}.section-head h2{font:700 clamp(30px,5vw,48px) 'Playfair Display',serif;color:var(--wine);margin:0 0 10px}.section-head p{color:var(--muted);line-height:1.8}.paper{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(20px,4vw,38px);box-shadow:var(--shadow)}.intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}.portrait{width:100%;max-height:420px;object-fit:cover;object-position:center 25%;border-radius:18px}.quote{font:600 25px/1.5 'Playfair Display',serif;color:var(--wine)}.muted{color:var(--muted);line-height:1.8}.tag{display:inline-block;padding:7px 11px;border-radius:30px;background:#f6ead6;color:#855a24;font-size:11px;font-weight:700;margin:4px}.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.photo{position:relative;overflow:hidden;border-radius:14px;background:#eadbc5;aspect-ratio:4/5;cursor:pointer}.photo img{width:100%;height:100%;object-fit:cover;transition:transform .5s}.photo:hover img{transform:scale(1.06)}.photo small{position:absolute;bottom:0;left:0;right:0;padding:25px 10px 10px;background:linear-gradient(transparent,#24130eb0);color:white;font-size:10px}.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 22px}.filter{border:1px solid var(--line);border-radius:24px;padding:8px 14px;background:white;color:var(--muted);font-size:12px}.filter.on{background:var(--wine);color:white;border-color:var(--wine)}.lightbox{display:none;position:fixed;inset:0;background:#160d0df2;z-index:30;align-items:center;justify-content:center;padding:20px}.lightbox.open{display:flex}.lightbox img{max-width:min(92vw,900px);max-height:85vh;object-fit:contain;border-radius:10px}.close{position:absolute;top:18px;right:22px;background:#fff2;border:1px solid #fff6;color:white;border-radius:50%;width:42px;height:42px;font-size:22px}.quiz{max-width:720px;margin:auto}.progress{height:7px;background:#f0e4d4;border-radius:9px;overflow:hidden;margin:18px 0}.progress span{display:block;height:100%;background:linear-gradient(90deg,var(--red),var(--gold));width:0;transition:.3s}.question{font:600 25px/1.4 'Playfair Display',serif;color:var(--wine);margin:14px 0 20px}.answers{display:grid;gap:10px}.answer{border:1px solid var(--line);background:white;padding:14px 16px;border-radius:13px;text-align:left;color:var(--ink)}.answer:hover{border-color:var(--gold)}.answer.correct{background:#edf5e9;border-color:#7ca66e}.answer.wrong{background:#fff0ed;border-color:#d68a7d}.feedback{min-height:48px;color:var(--muted);padding:12px 0;line-height:1.6}.terminal{background:#211c1b;color:#f6e8ce;border-radius:18px;padding:22px;font:13px/1.8 ui-monospace,monospace;box-shadow:var(--shadow)}.terminal .green{color:#a8d59c}.terminal .gold{color:#e7c77e}.terminal .red{color:#f19b8f}.cake-wrap{text-align:center;padding:35px 10px}.cake{font-size:clamp(110px,25vw,190px);filter:drop-shadow(0 12px 8px #5a261b22);animation:bob 2s infinite ease-in-out}@keyframes bob{50%{transform:translateY(-8px)}}.flame{font-size:36px;display:inline-block;animation:flicker .6s infinite alternate}@keyframes flicker{to{transform:rotate(8deg) scale(.9)}}.candle-off{opacity:0;transform:translateY(8px);transition:.5s}.secret{max-width:520px;margin:22px auto;text-align:center}.secret input{width:100%;padding:15px;border:1px solid var(--gold);border-radius:12px;background:white;text-align:center;letter-spacing:.18em;margin:12px 0}.letter{display:none;text-align:left;line-height:2;background:#fffaf0;border:1px dashed var(--gold);border-radius:16px;padding:24px;margin-top:20px}.letter.show{display:block;animation:fade .5s}.music-panel{margin-top:20px;border:1px solid var(--line);border-radius:16px;padding:18px;background:#fffdf8}.music-panel a{color:var(--wine);font-weight:600}.footer{text-align:center;color:#a08d7d;font-size:11px;padding:34px 0 0}.toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:var(--wine);color:white;padding:12px 18px;border-radius:30px;z-index:40;display:none;box-shadow:var(--shadow)}
+@media(max-width:720px){.intro-grid{grid-template-columns:1fr}.portrait{max-height:360px}.grid{grid-template-columns:repeat(2,1fr);gap:9px}.topbar small{display:none}.hero{min-height:70vh}.paper{padding:20px}}
+
+/* Birthday Quest polish */
+:root{--glow:#f4d58b}
+body{background:radial-gradient(circle at 8% 18%,#f6e7cf66,transparent 24%),radial-gradient(circle at 92% 55%,#edc5b866,transparent 26%),var(--cream)}
+.topbar{box-shadow:0 5px 24px #5a29100d}.hero{isolation:isolate}
+.hero:before{animation:twinkle 3.8s ease-in-out infinite}.hero:after{animation:twinkle 4.6s ease-in-out infinite reverse}
+.hero-inner{animation:riseIn .9s cubic-bezier(.2,.8,.2,1) both}
+.btn{position:relative;overflow:hidden}.btn:after{content:"";position:absolute;inset:-40% auto -40% -40%;width:28%;transform:rotate(22deg);background:#ffffff30;transition:left .6s}.btn:hover:after{left:130%}
+.paper,.photo,.video-card{transition:transform .35s,box-shadow .35s}
+.paper:hover{box-shadow:0 22px 65px #4b201526}.photo:hover,.video-card:hover{transform:translateY(-5px) rotate(-.4deg);box-shadow:0 15px 32px #5b2b1722}
+.video-card{position:relative;overflow:hidden;border-radius:15px;background:#fffdf8;border:1px solid var(--line);aspect-ratio:4/5;display:flex;flex-direction:column}
+.video-card video{width:100%;height:100%;min-height:0;flex:1;object-fit:cover;background:#241a18}
+.video-card .video-caption{padding:9px 10px 11px;color:var(--wine);font-size:11px;font-weight:700;line-height:1.45}
+.video-card .video-caption small{display:block;color:var(--muted);font-weight:500;margin-top:3px}
+.answers .answer{transition:transform .18s,border-color .18s,background .18s}.answers .answer:hover{transform:translateX(4px)}
+.flame{animation:flameDance .8s ease-in-out infinite alternate;transform-origin:50% 90%}
+.flame.candle-off{animation:none;filter:grayscale(1);opacity:.2;transform:scale(.65) translateY(12px)}
+.toast{animation:toastIn .35s ease}
+.sparkle{position:fixed;pointer-events:none;z-index:2;color:#c69a45;animation:floatUp 7s linear infinite;opacity:.5}
+@keyframes twinkle{0%,100%{opacity:.25;transform:scale(.9) rotate(0)}50%{opacity:.7;transform:scale(1.1) rotate(18deg)}}
+@keyframes riseIn{from{opacity:0;transform:translateY(22px) scale(.985)}to{opacity:1;transform:none}}
+@keyframes flameDance{from{transform:rotate(-5deg) scale(.94)}to{transform:rotate(5deg) scale(1.08)}}
+@keyframes toastIn{from{opacity:0;transform:translate(-50%,15px)}to{opacity:1;transform:translate(-50%,0)}}
+@keyframes floatUp{0%{transform:translateY(105vh) rotate(0);opacity:0}15%{opacity:.45}85%{opacity:.3}100%{transform:translateY(-12vh) rotate(240deg);opacity:0}}
+
+/* Refined gallery: show every photo in full, reduce endless scrolling */
+.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.photo{aspect-ratio:4/3;background:#f1e7d8;display:grid;place-items:center}
+.photo img{width:100%;height:100%;object-fit:contain;padding:5px;transition:transform .35s}
+.photo:hover img{transform:scale(1.025)}
+.video-card{aspect-ratio:4/3}
+.video-card video{object-fit:contain;background:#211b1a}
+.gallery-pager{display:flex;align-items:center;justify-content:center;gap:16px;margin:22px 0 8px;color:var(--muted);font-size:12px;font-weight:700}
+.gallery-pager .filter:disabled{opacity:.35;cursor:not-allowed}
+.photo small{font-size:10px}
+.answers .answer{width:100%;text-align:left;border:1px solid var(--line);border-radius:12px;background:#fffdf8;color:var(--ink);padding:13px 15px;margin:5px 0}
+.answers .answer.correct{border-color:#4e9466;background:#eaf6ed;color:#245b36}
+.answers .answer.wrong{border-color:#c45b54;background:#fff0ee;color:#8a2d2b}
+.answers .answer:disabled{cursor:default;opacity:.85}
+.feedback{margin:14px 0;font-weight:600;line-height:1.65}
+.feedback.good{color:#287447}.feedback.bad{color:#a13b35}
+@media(max-width:720px){.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.photo{aspect-ratio:1/1}.video-card{aspect-ratio:1/1}}
+
+
+
+/* Extra birthday magic */
+.puzzle-card{max-width:620px;margin:auto}
+.puzzle-meta{display:flex;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;font-weight:700;margin-bottom:14px}
+.puzzle-board{width:min(82vw,430px);aspect-ratio:1;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:5px;background:#e8d4b3;padding:6px;border-radius:18px;box-shadow:0 12px 28px #54251b20}
+.puzzle-tile{border:0;border-radius:10px;background-image:url('assets/new_51.jpg');background-size:300% 300%;background-repeat:no-repeat;box-shadow:inset 0 0 0 1px #fff8;transition:transform .16s,filter .16s;min-width:0}
+.puzzle-tile:not(.blank):hover{filter:brightness(1.08);transform:scale(.98)}
+.puzzle-tile.blank{background:none;box-shadow:inset 0 0 0 1px #c7a36c;background:#f8eddc;cursor:default}
+.clover-float{position:fixed;z-index:35;border:0;background:#ffffffd9;border-radius:50%;width:48px;height:48px;box-shadow:0 8px 24px #285b2528;font-size:26px;cursor:pointer;animation:cloverBob 1.8s ease-in-out infinite;transition:opacity .3s}
+.clover-float:hover{transform:scale(1.15)}
+@keyframes cloverBob{50%{translate:0 -7px;rotate:8deg}}
+.firework{position:fixed;z-index:60;pointer-events:none;width:8px;height:8px;border-radius:50%;animation:burst 1.15s ease-out forwards}
+@keyframes burst{0%{opacity:1;transform:translate(0,0) scale(.3)}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.2)}}
+.confetti{position:fixed;z-index:60;top:-20px;pointer-events:none;animation:confettiFall 2.8s linear forwards}
+@keyframes confettiFall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+.cat-paw{position:absolute;font-size:25px;opacity:.13;pointer-events:none;animation:twinkle 4s infinite}
+@media(max-width:520px){.puzzle-meta{font-size:11px}.puzzle-board{width:min(88vw,380px);gap:4px;padding:5px}.clover-float{width:42px;height:42px;font-size:23px}}
+
+/* Playroom: memory match + birthday wish wheel */
+.playroom-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.play-card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,26px);box-shadow:var(--shadow)}
+.memory-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;max-width:480px;margin:18px auto}
+.memory-card{border:0;padding:0;aspect-ratio:4/5;position:relative;perspective:700px;background:transparent}
+.memory-inner{position:absolute;inset:0;transition:transform .42s;transform-style:preserve-3d;border-radius:13px}
+.memory-card.flipped .memory-inner,.memory-card.matched .memory-inner{transform:rotateY(180deg)}
+.memory-face{position:absolute;inset:0;backface-visibility:hidden;border-radius:13px;overflow:hidden;border:1px solid var(--line)}
+.memory-back{display:grid;place-items:center;background:radial-gradient(circle at 25% 20%,#f5dfb5,#fff7e9 58%,#ecd7b9);color:var(--wine);font-size:clamp(22px,4vw,34px);box-shadow:inset 0 0 0 4px #fff9}
+.memory-back small{display:block;font-size:9px;letter-spacing:.12em;margin-top:5px;color:var(--muted)}
+.memory-front{transform:rotateY(180deg);background:#fff}
+.memory-front img{width:100%;height:100%;object-fit:cover;display:block}
+.memory-card.matched .memory-front{box-shadow:inset 0 0 0 4px #80a879}
+.memory-card:disabled{cursor:default}
+.memory-stats{display:flex;justify-content:space-between;gap:10px;font-size:12px;color:var(--muted);font-weight:700}
+.wheel-stage{width:min(78vw,330px);aspect-ratio:1;position:relative;margin:18px auto 12px}
+.wheel-pointer{position:absolute;z-index:2;top:-9px;left:50%;transform:translateX(-50%);width:0;height:0;border-left:15px solid transparent;border-right:15px solid transparent;border-top:27px solid var(--wine);filter:drop-shadow(0 3px 2px #4b201533)}
+.wish-wheel{width:100%;height:100%;border-radius:50%;border:8px solid #fff8ed;box-shadow:0 10px 30px #5a2b1926,inset 0 0 0 2px var(--gold);background:conic-gradient(from -22.5deg,#a83a32 0 45deg,#e7c77e 45deg 90deg,#7e9c70 90deg 135deg,#f2d9a6 135deg 180deg,#a83a32 180deg 225deg,#e7c77e 225deg 270deg,#7e9c70 270deg 315deg,#f2d9a6 315deg 360deg);transition:transform 4.2s cubic-bezier(.12,.72,.12,1);position:relative}
+.wheel-markers{position:absolute;inset:0;pointer-events:none;color:#fffaf0;text-shadow:0 2px 5px #4b201566;font-size:clamp(17px,3.5vw,25px)}
+.wheel-markers span{position:absolute;transform:translate(-50%,-50%)}
+.wheel-markers span:nth-child(1){left:50%;top:14%}.wheel-markers span:nth-child(2){left:76%;top:24%}.wheel-markers span:nth-child(3){left:86%;top:50%}.wheel-markers span:nth-child(4){left:76%;top:76%}.wheel-markers span:nth-child(5){left:50%;top:86%}.wheel-markers span:nth-child(6){left:24%;top:76%}.wheel-markers span:nth-child(7){left:14%;top:50%}.wheel-markers span:nth-child(8){left:24%;top:24%}
+.wheel-center{position:absolute;inset:36%;border-radius:50%;background:#fffaf0;border:3px solid var(--gold);display:grid;place-items:center;color:var(--wine);font-size:24px;box-shadow:0 2px 10px #5a2b1926}
+.wheel-legend{display:grid;grid-template-columns:1fr 1fr;gap:7px 12px;max-width:420px;margin:12px auto;color:var(--muted);font-size:11px;text-align:left}
+.wheel-legend span{padding:6px 8px;background:#fff9ef;border-radius:9px}
+.wish-result{min-height:56px;text-align:center;color:var(--wine);font:600 19px/1.5 'Playfair Display',serif;margin:12px 0}
+@keyframes wheelGlow{50%{filter:drop-shadow(0 0 12px #e8c46b)}}
+.wish-wheel.spinning{animation:wheelGlow .7s ease-in-out infinite alternate}
+@media(max-width:720px){.playroom-grid{grid-template-columns:1fr}.memory-grid{max-width:390px;gap:7px}.wheel-stage{width:min(76vw,300px)}}
+
+
+.envelope-stage{min-height:76vh;display:grid;place-items:center;position:relative;overflow:hidden;border-radius:28px;background:radial-gradient(circle at 20% 20%,#f2d8b6,transparent 32%),radial-gradient(circle at 80% 75%,#e8c4bf,transparent 30%),linear-gradient(135deg,#fffdf8,#f5e4ce);border:1px solid var(--line);box-shadow:var(--shadow);padding:28px}
+.envelope-card{width:min(100%,520px);min-height:440px;position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:48px 30px;background:linear-gradient(150deg,#fffdf8,#fff2df);border:1px solid #dfc18d;border-radius:18px;box-shadow:0 22px 55px #6a352226}
+.envelope-card:before{content:"";position:absolute;inset:12px;border:1px dashed #d5b47c;border-radius:12px;pointer-events:none}.envelope-card:after{content:"";position:absolute;top:0;left:0;right:0;height:42%;background:linear-gradient(145deg,#f0dbb8,#e4c18b);clip-path:polygon(0 0,100% 0,50% 78%);transform-origin:top;transition:transform .55s;opacity:.9;pointer-events:none}.envelope-card.opened:after{transform:rotateX(180deg)}.envelope-card.opened{transform:scale(.97);opacity:.45;transition:transform .6s,opacity .6s}
+.envelope-top{font-size:10px;letter-spacing:.28em;color:var(--gold);font-weight:800}
+.envelope-seal{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#9a3039,#6e1d2b);color:#ffe7b2;font-size:30px;box-shadow:0 8px 20px #76232b30;margin:24px 0 12px;border:3px solid #e7c77e}
+.envelope-title{font-size:clamp(38px,7vw,56px);color:var(--wine);margin:0}
+.envelope-card p{color:var(--muted);line-height:1.8}
+.envelope-hint{font:italic 17px 'Playfair Display',serif!important;color:var(--wine)!important}
+.envelope-bottom{position:absolute;bottom:28px;font-size:10px;letter-spacing:.24em;color:#a88b63}
+.envelope-decor{position:absolute;bottom:7%;font-size:24px;color:#c69a45;opacity:.65;letter-spacing:1em}
+.cat-portrait{width:100%;height:auto;max-height:300px;object-fit:contain;background:#f7efe4;border-radius:14px;display:block}.hero-photo{object-fit:contain;background:#fff}.portrait{height:auto;max-height:420px;object-fit:contain;background:#f7efe4}.photo:hover img{transform:none}
+.photo{aspect-ratio:auto!important;display:flex;flex-direction:column;align-items:stretch;background:#fffdf8;cursor:zoom-in}
+.photo img{width:100%;height:auto!important;max-height:360px;object-fit:contain!important;padding:5px;background:#f8f0e4;display:block}
+.photo small{position:static!important;display:block;background:#fffdf8!important;color:var(--wine)!important;padding:10px!important;text-align:left;font-weight:700}
+.video-card{aspect-ratio:auto!important}
+.video-card video{width:100%;height:auto!important;max-height:360px;object-fit:contain!important;background:#211b1a}
+.memory-front img{object-fit:contain!important;background:#f5ecdf;padding:3px}
+#memoryContinue:disabled{opacity:.45;cursor:not-allowed}
+.letter-nav{display:none;margin-top:18px;padding:18px;border:1px dashed var(--gold);border-radius:16px;background:#fffaf0}
+.cake-scene{position:relative;min-height:390px;display:flex;justify-content:center;align-items:flex-end;padding:55px 10px 30px;overflow:hidden;background:radial-gradient(ellipse at 50% 90%,#f5e3c9 0,transparent 62%)}
+.birthday-cake{position:relative;width:min(78vw,390px);height:255px;filter:drop-shadow(0 15px 12px #67331b20);animation:cakeBob 3.5s ease-in-out infinite}
+.cake-plate{position:absolute;bottom:0;left:2%;width:96%;height:22px;border-radius:50%;background:linear-gradient(#fff9ed,#d8b982);border:3px solid #f8e8cb;box-shadow:0 8px 12px #6a34151c}
+.cake-tier{position:absolute;left:10%;width:80%;border-radius:22px 22px 28px 28px;border:3px solid #fff0d7;box-shadow:inset 0 7px 10px #ffffff65,0 7px 8px #6a34151b}
+.tier-bottom{height:112px;bottom:18px;background:linear-gradient(110deg,#e8a6a2,#f6c6b2 42%,#d98b87)}
+.tier-top{height:90px;bottom:111px;left:20%;width:60%;background:linear-gradient(110deg,#f4d99b,#ffe8b9 45%,#e9bf77);border-radius:22px 22px 18px 18px}
+.cake-top{position:absolute;left:20%;bottom:190px;width:60%;height:25px;border-radius:50%;background:linear-gradient(#fff8e8,#f0d7b5);border:3px solid #fff1d9}
+.tier-top b{position:absolute;left:0;right:0;top:22px;text-align:center;font:700 30px 'Playfair Display',serif;color:#9b4b46;text-shadow:0 2px #fff8}
+.icing-drip{position:absolute;left:0;right:0;top:-4px;height:22px;border-radius:18px 18px 12px 12px;background:linear-gradient(#fff9ed,#f7e7d0);box-shadow:0 4px 0 #e6b5a2}
+.berry{position:absolute;width:17px;height:17px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff0c8 0 10%,#b8494d 12% 60%,#77242d 80%);box-shadow:0 2px 4px #6a241d35}
+.berry-a{left:20%;top:35px}.berry-b{right:20%;top:35px}.berry-c{left:48%;top:52px;width:12px;height:12px}
+.berry-d{left:16%;top:48px}.berry-e{right:17%;top:48px}.berry-f{left:48%;top:70px}
+.cake-candles{position:absolute;z-index:4;left:0;right:0;bottom:210px;display:flex;justify-content:center;gap:34px}
+.cake-candle{height:62px;width:13px;border-radius:5px;background:repeating-linear-gradient(135deg,#fff7e8 0 7px,#cf6e73 7px 13px);box-shadow:0 2px 4px #6a34152a;position:relative}
+.cake-candle:nth-child(2){height:75px;background:repeating-linear-gradient(135deg,#fff7e8 0 7px,#d8a847 7px 13px)}
+.cake-candle i{position:absolute;width:15px;height:22px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:radial-gradient(circle at 55% 65%,#fff7ad 0 18%,#ffb52e 35%,#f05b35 75%);top:-24px;left:-1px;transform-origin:50% 100%;animation:flameDance .65s ease-in-out infinite alternate}
+.cake-candle i:after{content:"";position:absolute;width:5px;height:8px;border-radius:50%;background:#fff7d0;left:5px;top:8px}
+.cake-photo-topper{position:absolute;z-index:5;left:clamp(8px,12vw,100px);top:18px;width:112px;padding:6px 6px 19px;background:#fffdf7;border:1px solid #e6d2b3;box-shadow:0 8px 20px #60351b22;transform:rotate(-8deg)}
+.cake-photo-topper img{width:100%;height:106px;object-fit:contain;display:block;background:#1b1515}
+.cake-photo-topper span{display:block;font:10px 'Playfair Display',serif;color:var(--wine);padding-top:4px}
+.cake-sparkles{position:absolute;right:8%;top:55px;color:#c69a45;font-size:18px;animation:twinkle 2s infinite}
+.cake-instruction{font:600 17px 'Playfair Display',serif;color:var(--wine);margin:14px 0 22px}
+@keyframes cakeBob{50%{transform:translateY(-5px)}}
+.cake-video-modal{display:none;position:fixed;inset:0;z-index:80;background:#170d0df2;align-items:center;justify-content:center;padding:18px}
+.cake-video-modal.open{display:flex}
+.cake-video-card{width:min(100%,560px);position:relative;background:#fffaf0;border:1px solid var(--gold);border-radius:20px;padding:22px;box-shadow:0 22px 70px #0007;text-align:center}
+.cake-video-card video{display:block;width:100%;max-height:70vh;object-fit:contain;background:#211b1a;border-radius:12px;margin:12px auto 18px}
+.cake-video-title{font:600 20px 'Playfair Display',serif;color:var(--wine);padding:8px 35px}
+.cake-video-close{position:absolute;top:10px;right:10px;background:#76232b;color:white;z-index:2}
+.cat-walker{position:fixed;z-index:12;bottom:12px;left:-120px;font-size:32px;pointer-events:none;filter:drop-shadow(0 3px 3px #4b201522);animation:catWalk 26s linear infinite}
+.cat-walker span{font-size:17px;opacity:.7}
+@keyframes catWalk{0%{left:-120px;transform:translateY(0) scaleX(1)}45%{transform:translateY(-8px) scaleX(1)}50%{transform:translateY(0) scaleX(1)}99.9%{left:110vw;transform:scaleX(1)}100%{left:-120px}}
+@media(max-width:600px){.envelope-card{min-height:410px;padding:40px 22px}.cake-scene{min-height:350px;padding-top:60px}.birthday-cake{width:min(88vw,340px);height:230px}.tier-bottom{height:100px}.tier-top{height:80px;bottom:98px}.cake-top{bottom:168px}.cake-candles{bottom:188px;gap:26px}.cake-photo-topper{width:86px;left:6px;top:8px}.cake-photo-topper img{height:82px}.cake-sparkles{right:3%;top:45px;font-size:13px}.photo img{max-height:300px}}
+
+
+/* Softer birthday atmosphere: gentle floating garden, paw trails and celebratory wheel twist */
+.cake-melody{position:relative;display:flex;align-items:center;gap:13px;max-width:620px;margin:28px auto 8px;padding:16px 18px 24px;border:1px solid #ead7b8;border-radius:22px;background:linear-gradient(135deg,#fffaf1,#fff0e5 55%,#f7ead8);box-shadow:0 12px 30px #75422a12;overflow:hidden;text-align:left}
+.melody-icon{width:48px;height:48px;flex:0 0 48px;display:grid;place-items:center;border-radius:16px;background:linear-gradient(145deg,#fff,#f2dfc4);font-size:25px;box-shadow:inset 0 0 0 1px #ead5b1}
+.melody-copy{display:flex;flex:1;min-width:0;flex-direction:column;gap:4px;color:var(--wine)}
+.melody-copy b{font-size:13px}
+.melody-copy span{font-size:11px;color:var(--muted)}
+.melody-toggle{width:42px;height:42px;border:0;border-radius:50%;background:linear-gradient(145deg,#8b2d39,#68202b);color:#fff;font-size:17px;box-shadow:0 6px 16px #76232b30;cursor:pointer}
+.melody-wave{position:absolute;left:78px;right:78px;bottom:8px;height:8px;display:flex;align-items:center;gap:3px;opacity:.55}
+.melody-wave i{width:3px;height:4px;border-radius:4px;background:#c69a45;animation:waveBounce .8s ease-in-out infinite alternate}
+.melody-wave i:nth-child(2n){animation-delay:.2s}.melody-wave i:nth-child(3n){animation-delay:.4s}
+@keyframes waveBounce{to{height:8px}}
+#ambientGarden{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.garden-piece{position:absolute;bottom:-55px;opacity:0;animation:gardenFloat 22s linear infinite;color:#b18a4b;text-shadow:0 2px 8px #d9b87955}
+@keyframes gardenFloat{0%{transform:translate3d(0,0,0) rotate(-15deg);opacity:0}12%{opacity:.42}75%{opacity:.34}100%{transform:translate3d(22px,-115vh,0) rotate(35deg);opacity:0}}
+.cat-walker{position:fixed;z-index:14;bottom:9px;left:-180px;display:flex;align-items:flex-end;gap:6px;pointer-events:none;filter:drop-shadow(0 4px 5px #4b201522);animation:catWalk 32s linear infinite}
+.walking-cat{font-size:36px;animation:catHop 1.2s ease-in-out infinite}
+.walking-paws{font-size:14px;color:#b78b57;opacity:.75;letter-spacing:2px;padding-bottom:2px}
+@keyframes catHop{50%{transform:translateY(-7px) rotate(-4deg)}}
+@keyframes catWalk{0%{left:-180px;transform:scaleX(1)}49%{left:108vw;transform:scaleX(1)}50%{left:108vw;transform:scaleX(-1)}99.9%{left:-180px;transform:scaleX(-1)}100%{left:-180px;transform:scaleX(1)}}
+.wish-wheel{box-shadow:0 15px 36px #5a2b1926,inset 0 0 0 3px #d2a64e,inset 0 0 0 9px #fff8ed;position:relative}
+.wish-wheel:before{content:"";position:absolute;inset:9px;border-radius:50%;border:1px dashed #fff8dc;pointer-events:none}
+.wish-wheel.jackpot{animation:jackpotPulse 1.3s ease-in-out 3;filter:drop-shadow(0 0 16px #edc45e)}
+@keyframes jackpotPulse{50%{filter:drop-shadow(0 0 26px #f0c76b) brightness(1.1)}}
+.wheel-jackpot{padding:10px 0 0;animation:jackpotReveal .8s cubic-bezier(.2,.8,.2,1) both}
+@keyframes jackpotReveal{from{opacity:0;transform:translateY(12px) scale(.96)}to{opacity:1;transform:translateY(0) scale(1)}}
+.jackpot-kicker{font:800 10px/1.4 Arial,sans-serif;letter-spacing:.22em;color:#b18b4c}
+.jackpot-main{font:600 18px/1.45 'Playfair Display',serif;color:var(--wine);margin:5px 0}
+.jackpot-answer{font:800 20px/1.4 Arial,sans-serif;color:#a83a32;text-shadow:0 2px #fff1d4;margin:5px 0 10px}
+.wheel-jackpot p{font-size:12px;color:var(--muted);margin:8px 0}
+.all-wishes{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:10px auto;max-width:440px}
+.all-wishes span{padding:8px 9px;border-radius:12px;background:linear-gradient(135deg,#fffaf0,#f7e8ce);font-size:11px;color:#76543a;border:1px solid #efdfc1;animation:wishPop .4s both;animation-delay:calc(var(--wish-i)*.07s)}
+@keyframes wishPop{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
+.jackpot-foot{font-size:12px;color:var(--wine);font-weight:700;line-height:1.5}
+.lucky-rain{position:fixed;z-index:70;top:-35px;pointer-events:none;animation:luckyFall 3.6s ease-in forwards;filter:drop-shadow(0 2px 4px #7a4a2420)}
+@keyframes luckyFall{to{transform:translateY(110vh) rotate(420deg);opacity:0}}
+.wheel-tease{font:600 17px 'Playfair Display',serif;color:var(--wine)}
+@media(max-width:520px){.cake-melody{padding:13px 12px 23px;gap:9px}.melody-copy b{font-size:12px}.melody-copy span{font-size:10px}.all-wishes{gap:5px}.all-wishes span{font-size:10px;padding:7px 6px}.jackpot-answer{font-size:18px}}
+
+
+/* Final gallery corrections: preserve full frames and avoid empty card bottoms */
+.grid{align-items:start}
+.photo{align-self:start;height:auto!important;min-height:0}
+.photo img{width:100%;height:auto!important;max-height:360px;object-fit:contain!important;padding:5px;background:#f8f0e4;display:block}
+@media(max-width:600px){.photo img{max-height:320px}}
+/* A soft little goodbye after the letter */
+.farewell-cat{position:fixed;left:0;right:0;bottom:12vh;z-index:90;pointer-events:none;display:flex;flex-direction:column;align-items:center;gap:8px;animation:farewellFly 5.7s cubic-bezier(.25,.7,.25,1) forwards}
+.farewell-bubble{background:#fffaf0ee;border:1px solid #e7cf9d;border-radius:22px;padding:10px 17px;color:#76232b;font:600 14px/1.5 'Be Vietnam Pro',sans-serif;box-shadow:0 8px 26px #5b2b1720;animation:bubblePop .5s both}
+.farewell-flight{font-size:46px;filter:drop-shadow(0 6px 8px #54251b20);animation:kittyFloat 1s ease-in-out infinite alternate}
+.farewell-flight span{font-size:19px;color:#c69a45}
+@keyframes farewellFly{0%{transform:translateX(-115vw) translateY(20px);opacity:0}12%{opacity:1}80%{opacity:1}100%{transform:translateX(115vw) translateY(-45px);opacity:0}}
+@keyframes kittyFloat{to{transform:translateY(-10px) rotate(5deg)}}
+@keyframes bubblePop{from{transform:scale(.7);opacity:0}to{transform:scale(1);opacity:1}}
+
+
+/* Full-bleed circle for the childhood photo. */
+.hero-photo{display:block!important;width:144px!important;height:144px!important;min-width:144px!important;min-height:144px!important;box-sizing:border-box!important;padding:0!important;border:5px solid #fff!important;border-radius:50%!important;object-fit:cover!important;object-position:center center!important;background:transparent!important;overflow:hidden!important}
+/* Bin tới rồi hả: the portrait fills its entire frame. */
+.intro-grid .portrait{display:block;width:100%;height:100%;min-height:420px;max-height:none;aspect-ratio:4/5;object-fit:cover;object-position:center center;border-radius:18px}
+@media(max-width:720px){.intro-grid .portrait{min-height:0;height:auto;aspect-ratio:4/5;max-height:none}}
+/* Slower, readable farewell sequence. */
+.letter.closing{display:block!important;transform-origin:top center;animation:letterFold 1.25s cubic-bezier(.55,.05,.7,.35) forwards;overflow:hidden}
+@keyframes letterFold{0%{opacity:1;transform:perspective(900px) rotateX(0) scaleY(1);max-height:900px}65%{opacity:1;transform:perspective(900px) rotateX(-55deg) scaleY(.72)}100%{opacity:0;transform:perspective(900px) rotateX(-88deg) scaleY(.04);max-height:0;padding-top:0;padding-bottom:0;margin-top:0}}
+.farewell-cat{bottom:13vh!important;animation:farewellFly 7.4s cubic-bezier(.25,.7,.25,1) forwards!important}
+.farewell-bubble{font-size:clamp(14px,2vw,17px)!important;padding:13px 20px!important}
+.farewell-flight{font-size:clamp(54px,8vw,76px)!important}
+@keyframes farewellFly{0%{transform:translateX(-115vw) translateY(18px) scale(.72);opacity:0}10%{opacity:1}23%{transform:translateX(-8vw) translateY(-5px) scale(1)}62%{transform:translateX(0) translateY(-5px) scale(1.04);opacity:1}88%{opacity:1}100%{transform:translateX(115vw) translateY(-48px) scale(.82);opacity:0}}
+.farewell-video{position:fixed;inset:0;z-index:120;background:radial-gradient(circle at center,#fff8e9 0,#251016 78%);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;visibility:hidden;clip-path:circle(0% at 50% 50%);transition:clip-path 1.9s cubic-bezier(.2,.8,.2,1),opacity .8s,visibility .8s}
+.farewell-video.open{opacity:1;visibility:visible;clip-path:circle(150% at 50% 50%)}
+.farewell-video-inner{width:min(920px,96vw);text-align:center;color:#fff8ed}
+.farewell-video h2{font:700 clamp(25px,4vw,42px) 'Playfair Display',serif;margin:0 0 8px;color:#f6d58b}
+.farewell-video p{margin:0 0 18px;color:#fff0d7}
+.farewell-video video{display:block;width:100%;max-height:66vh;aspect-ratio:16/9;object-fit:contain;background:#100a0a;border-radius:18px;box-shadow:0 18px 60px #0008}
+.farewell-video-actions{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:16px}
+.farewell-video-actions button{border:1px solid #f6d58b;background:#fff8ed;color:#76232b;border-radius:24px;padding:10px 18px;font-weight:700}
+.farewell-video-actions button.secondary{background:transparent;color:#fff8ed}
+@media(prefers-reduced-motion:reduce){.farewell-cat,.letter.closing{animation-duration:.01ms!important}.farewell-video{transition-duration:.01ms!important}}
+
+
+/* Birthday Quest 28 · Vietnamese xin-sam interaction */
+.xin-sam-card{text-align:center;overflow:hidden}
+.sam-stage{height:245px;position:relative;display:grid;place-items:center;margin:12px auto 4px;isolation:isolate}
+.sam-halo{position:absolute;width:210px;height:210px;border-radius:50%;background:radial-gradient(circle,#f7e6b7 0%,#f7e6b755 48%,transparent 72%);z-index:-1}
+.sam-stick-cup{position:relative;width:132px;height:190px;transform-origin:50% 82%;filter:drop-shadow(0 12px 12px #6d2b2024)}
+.sam-cup-body{position:absolute;left:9px;right:9px;bottom:12px;height:143px;border-radius:12px 12px 23px 23px;background:linear-gradient(90deg,#8c1e25,#b82f31 28%,#a3232b 70%,#741920);border:3px solid #d7a64c;box-shadow:inset 0 0 0 3px #e8c16a,inset 0 0 20px #5c111b66;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#ffe7a1}
+.sam-cup-body span{font-family:serif;font-size:54px;line-height:1.1;text-shadow:0 2px 3px #4a1111}
+.sam-cup-body small{font-size:10px;letter-spacing:2px;line-height:1.6;font-weight:800}
+.sam-cup-top{position:absolute;z-index:3;top:25px;left:5px;width:122px;height:19px;border-radius:50%;background:linear-gradient(#f5d98e,#a96e27);border:3px solid #f5df9d}
+.sam-cup-base{position:absolute;bottom:3px;left:0;right:0;height:18px;border-radius:50%;background:linear-gradient(#dcae57,#8d5525);border:2px solid #f3d28c}
+.sam-sticks{position:absolute;z-index:2;left:20px;right:20px;top:0;height:78px}
+.sam-sticks i{position:absolute;bottom:0;width:7px;height:76px;border-radius:4px 4px 1px 1px;background:linear-gradient(90deg,#d5a65e,#fff0bd 45%,#a56d32);box-shadow:0 1px 3px #673a1e55;transform-origin:50% 100%}
+.sam-sticks i:nth-child(1){left:5px;transform:rotate(-18deg);height:70px}.sam-sticks i:nth-child(2){left:17px;transform:rotate(-12deg);height:82px}.sam-sticks i:nth-child(3){left:29px;transform:rotate(-7deg);height:74px}.sam-sticks i:nth-child(4){left:41px;transform:rotate(-2deg);height:88px}.sam-sticks i:nth-child(5){left:53px;transform:rotate(5deg);height:79px}.sam-sticks i:nth-child(6){left:65px;transform:rotate(10deg);height:85px}.sam-sticks i:nth-child(7){left:77px;transform:rotate(16deg);height:73px}.sam-sticks i:nth-child(8){left:89px;transform:rotate(20deg);height:81px}.sam-sticks i:nth-child(9){left:47px;transform:rotate(0deg);height:92px}
+.sam-lucky-cloud{position:absolute;bottom:0;color:#c08b31;font-size:22px;letter-spacing:3px;animation:softFloat 2.4s ease-in-out infinite}
+.sam-instruction{font-size:13px;color:var(--muted);margin:4px 0 12px}
+.sam-shake{animation:samShake 2.05s ease-in-out}
+@keyframes samShake{0%,100%{transform:rotate(0) translateY(0)}12%{transform:rotate(-9deg) translateY(-3px)}24%{transform:rotate(9deg) translateY(-1px)}36%{transform:rotate(-8deg) translateY(-4px)}48%{transform:rotate(8deg) translateY(-2px)}60%{transform:rotate(-6deg) translateY(-3px)}72%{transform:rotate(5deg)}84%{transform:rotate(-2deg)}}
+.sam-reveal .sam-sticks i:nth-child(5){animation:stickPop .65s ease-out both}
+@keyframes stickPop{to{transform:translateY(-34px) rotate(3deg)}}
+.fortune-paper{position:relative;max-width:420px;margin:12px auto 16px;padding:18px 20px 22px;background:linear-gradient(145deg,#fff9e9,#f4e4c4);border:1px solid #d4aa61;border-radius:8px;box-shadow:0 8px 22px #6d2b2018;color:#71302b;overflow:hidden}
+.fortune-paper:before{content:"";position:absolute;inset:7px;border:1px solid #d9b878;pointer-events:none}
+.fortune-top{font:800 10px/1.4 sans-serif;letter-spacing:2px;color:#9b6b29}
+.fortune-seal{font-size:35px;margin:8px auto 2px}
+.fortune-grade{font-size:12px;font-weight:900;letter-spacing:1px;color:#a52e2c}
+.fortune-paper h4{font:700 20px/1.3 'Playfair Display',serif;margin:8px 0;color:#842c2b}
+.fortune-paper p{font-size:13px;line-height:1.75;margin:0 auto;max-width:350px}
+.fortune-stamp{position:absolute;right:18px;bottom:15px;border:2px solid #a52e2c;color:#a52e2c;padding:4px 6px;font:900 10px/1.25 serif;transform:rotate(-10deg);opacity:.85}
+.all-blessings-title{font-size:11px;letter-spacing:1.2px;font-weight:900;color:#986c32;margin:15px 0 8px}
+.all-wishes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:7px;margin:10px 0 14px}
+.all-wishes span{display:block;background:#fff9ef;border:1px solid #ead8b9;border-radius:10px;padding:9px 10px;font:600 12px/1.4 sans-serif;color:#75413a;animation:wishPop .4s both;animation-delay:calc(var(--wish-i)*.05s)}
+@media(max-width:520px){.sam-stage{height:220px}.sam-stick-cup{transform:scale(.9);transform-origin:center}.all-wishes{grid-template-columns:1fr}.fortune-paper{padding:16px 16px 24px}.fortune-paper p{font-size:12px}}
+
+
+/* A clear, friendly cue so Bin knows to close the letter for the final surprise. */
+.close-letter-hint{display:flex;align-items:center;justify-content:center;gap:12px;margin:18px auto 10px;padding:12px 16px;max-width:560px;border:1px dashed #d4a64f;border-radius:16px;background:linear-gradient(135deg,#fff8e8,#fffdf7);color:#76232b;font:600 14px/1.55 'Be Vietnam Pro',sans-serif;text-align:center;box-shadow:0 7px 20px #7c3d1b12}
+.close-letter-hint b{color:#a36e18}
+.hint-arrow{font-size:23px;color:#b98227;flex:0 0 auto;animation:hintBounce 1.05s ease-in-out infinite}
+@keyframes hintBounce{0%,100%{transform:translateY(-3px)}50%{transform:translateY(5px)}}
+.close-letter-btn{box-shadow:0 7px 20px #7c3d1b20;animation:closeBtnPulse 1.8s ease-in-out infinite}
+@keyframes closeBtnPulse{0%,100%{transform:translateY(0);box-shadow:0 5px 15px #7c3d1b16}50%{transform:translateY(-2px);box-shadow:0 9px 23px #7c3d1b2b}}
+@media(max-width:520px){.close-letter-hint{font-size:12px;padding:10px 11px;gap:7px}.hint-arrow{font-size:19px}}
+
+
+/* GRAND FINALE · Level 28 */
+.birthday-finale{position:fixed;inset:0;z-index:160;display:flex;align-items:center;justify-content:center;overflow:auto;padding:22px 14px;background:
+ radial-gradient(circle at 50% 0%,#fff1b8 0,#8f2835 34%,#270e20 78%,#120914 100%);
+ opacity:0;visibility:hidden;transform:scale(1.04);transition:opacity .65s ease,transform .8s cubic-bezier(.2,.8,.2,1),visibility .65s}
+.birthday-finale.show{opacity:1;visibility:visible;transform:scale(1)}
+.finale-card{position:relative;width:min(720px,96vw);margin:auto;padding:clamp(25px,5vw,48px) clamp(20px,5vw,52px);text-align:center;color:#76232b;background:linear-gradient(145deg,#fffdf7,#fff1d7);border:2px solid #e8c77e;border-radius:28px;box-shadow:0 0 0 8px #f4d88b20,0 22px 90px #0008;animation:finaleCardIn .9s cubic-bezier(.16,1,.3,1) both}
+@keyframes finaleCardIn{from{opacity:0;transform:translateY(35px) scale(.88)}to{opacity:1;transform:translateY(0) scale(1)}}
+.finale-kicker{font:800 11px/1.5 'Be Vietnam Pro',sans-serif;letter-spacing:.22em;color:#ad7a25}
+.finale-crown{font-size:44px;margin:9px 0 0;filter:drop-shadow(0 5px 8px #c89a4245);animation:crownBounce 1.6s ease-in-out infinite alternate}
+@keyframes crownBounce{to{transform:translateY(-7px) rotate(4deg)}}
+.birthday-finale h2{font:800 clamp(29px,6vw,52px)/1.1 'Playfair Display',serif;letter-spacing:.035em;color:#8c202c;margin:8px 0 13px;text-shadow:0 2px #f5dca7}
+.finale-divider{display:flex;align-items:center;justify-content:center;gap:12px;color:#bd8a35;margin:0 auto 18px;max-width:280px}
+.finale-divider i{height:1px;flex:1;background:linear-gradient(90deg,transparent,#c99a45,transparent)}
+.finale-main{font:700 clamp(19px,3vw,25px) 'Playfair Display',serif;color:#9a2732;margin:8px 0 14px}
+.finale-wish{font:400 14px/1.9 'Be Vietnam Pro',sans-serif;color:#674d43;margin:10px auto;max-width:570px}
+.finale-love{font:500 14px/1.9 'Be Vietnam Pro',sans-serif;color:#76232b;margin:19px auto 17px}
+.finale-love b{font-weight:800}
+.finale-signature{font:800 9px/1.7 'Be Vietnam Pro',sans-serif;letter-spacing:.15em;color:#a77b38;margin:15px 0 20px}
+.finale-close{border:0;border-radius:30px;padding:14px 24px;background:linear-gradient(135deg,#a52b37,#6e1728);color:#fff8e9;font:800 12px 'Be Vietnam Pro',sans-serif;letter-spacing:.04em;box-shadow:0 8px 22px #76232b35;cursor:pointer;animation:finalePulse 1.8s ease-in-out infinite}
+@keyframes finalePulse{50%{box-shadow:0 0 0 8px #c89a4222,0 8px 25px #76232b50;transform:translateY(-2px)}}
+.finale-stars{position:fixed;top:5%;left:0;right:0;text-align:center;color:#ffe5a1;font-size:clamp(17px,3vw,28px);letter-spacing:.2em;text-shadow:0 0 20px #ffe8a4;animation:starDrift 4s ease-in-out infinite alternate;pointer-events:none}
+.finale-bottom{position:fixed;bottom:2%;left:0;right:0;text-align:center;color:#ffe7ae;font:800 10px 'Be Vietnam Pro',sans-serif;letter-spacing:.12em;pointer-events:none}
+@keyframes starDrift{to{transform:translateY(12px);opacity:.65}}
+@media(max-width:520px){.birthday-finale{align-items:flex-start;padding-top:28px;padding-bottom:50px}.finale-card{border-radius:22px}.finale-wish,.finale-love{font-size:13px;line-height:1.8}.finale-bottom{font-size:8px}}
+@media(prefers-reduced-motion:reduce){.finale-card,.finale-crown,.finale-close,.finale-stars{animation:none!important}.birthday-finale{transition:none!important}}
+
+
+/* Grand finale party decor: a glowing LED garland and a gold birthday banner. */
+.finale-party-lights{
+  position:absolute;z-index:3;top:10px;left:50%;transform:translateX(-50%);
+  width:min(900px,96vw);height:100px;pointer-events:none;text-align:center;
+}
+.party-light-wire{
+  position:absolute;top:12px;left:2%;right:2%;height:24px;
+  border-top:2px solid #f2d58a;border-radius:0 0 50% 50%;
+  filter:drop-shadow(0 0 5px #ffe9a4);
+}
+.party-light-bulbs{
+  position:absolute;top:10px;left:3%;right:3%;
+  display:flex;justify-content:space-between;align-items:flex-start;
+}
+.party-light-bulbs i{
+  display:block;width:10px;height:15px;border-radius:50% 50% 45% 45%;
+  background:#fff4bd;box-shadow:0 0 7px 3px #ffe9a4,0 0 18px 7px #f6c85c88;
+  animation:ledTwinkle 1.35s ease-in-out infinite alternate;
+}
+.party-light-bulbs i:nth-child(3n){animation-delay:.35s;background:#fff}
+.party-light-bulbs i:nth-child(3n + 1){animation-delay:.7s;background:#ffd88b}
+@keyframes ledTwinkle{from{opacity:.55;filter:brightness(.85);transform:scale(.86)}to{opacity:1;filter:brightness(1.35);transform:scale(1.12)}}
+.party-banner{
+  position:relative;display:flex;align-items:center;justify-content:center;gap:clamp(8px,2vw,20px);
+  width:max-content;max-width:92%;margin:34px auto 0;padding:10px clamp(16px,4vw,34px);
+  color:#6e1728;background:linear-gradient(180deg,#fff2bd 0%,#e8bd63 48%,#c48b35 100%);
+  border:1px solid #fff0bd;clip-path:polygon(0 0,100% 0,96% 50%,100% 100%,0 100%,4% 50%);
+  box-shadow:0 5px 22px #0006,0 0 20px #ffe6a0a8;
+  font:900 clamp(13px,2.6vw,22px)/1.1 'Be Vietnam Pro',sans-serif;
+  letter-spacing:.12em;text-shadow:0 1px 0 #fff1c7;
+  animation:bannerShine 3.2s ease-in-out infinite;
+}
+.party-banner span{color:#fff8d8;text-shadow:0 0 8px #fff,0 0 14px #fff0a8}
+@keyframes bannerShine{0%,100%{filter:brightness(1)}50%{filter:brightness(1.22) drop-shadow(0 0 10px #ffe6a0)}}
+.birthday-finale .finale-card{margin-top:108px}
+@media(max-width:520px){
+  .finale-party-lights{top:5px;height:86px;width:98vw}
+  .party-light-bulbs i{width:7px;height:11px}
+  .party-banner{margin-top:29px;padding:9px 17px;letter-spacing:.07em}
+  .birthday-finale .finale-card{margin-top:96px}
+}
+@media(prefers-reduced-motion:reduce){
+  .party-light-bulbs i,.party-banner{animation:none!important}
+}
+
+</style></head>
+<body>
+<header class="topbar"><div><div class="brand">✦ BIRTHDAY QUEST 28</div><small>Ka tự tay chuẩn bị một chút bất ngờ ♥</small></div><button class="music-btn" onclick="toggleMusic()">♫ Nhạc của tụi mình: <span id="musicState">TẮT</span></button></header><div id="musicPlayer" aria-hidden="true" style="position:fixed;width:0;height:0;overflow:hidden">
+<audio id="mainAudio" preload="auto"></audio>
+<audio id="cakeAudio" preload="auto"></audio>
+</div>
+<main>
+<section class="page active" id="envelope"><div class="envelope-stage"><div class="envelope-card"><div class="envelope-top">A LITTLE SURPRISE FOR YOU</div><div class="envelope-seal">♥</div><div class="envelope-title serif">Gửi Bin,</div><p>Ka có một chiếc thiệp nhỏ muốn gửi riêng anh.</p><p class="envelope-hint">Mở ra đi, nhân vật chính hôm nay. ✨</p><button class="btn" onclick="openEnvelope()">MỞ THIỆP SINH NHẬT 💌</button><div class="envelope-bottom">04 · 11 · 2026</div></div><div class="envelope-decor">✦　♡　✦</div></div></section>
+<section class="page" id="invite"><div class="hero"><div class="hero-inner"><div class="eyebrow">THIỆP MỜI ĐẶC BIỆT · 04 THÁNG 11</div><img class="hero-photo" src="assets/old_01.jpg" alt="Tú hồi nhỏ"><h1 class="serif">Bin ơi<span>Tuổi 28 tới rồi nè!</span></h1><p>Em có một cuộc hẹn bí mật dành riêng cho anh.<br>Không cần chuẩn bị gì hết — hôm nay anh chỉ cần tới, cười thật nhiều và tận hưởng ngày của mình thôi nha!</p><div class="tag">04.11.1998</div><div class="tag">Birthday Edition 28</div><div class="btn-row"><button class="btn" onclick="go('welcome')">BẮT ĐẦU HÀNH TRÌNH →</button></div><p style="font-size:11px;margin-top:25px">THIỆP RIÊNG TỪ KA · GỬI BIN</p></div></div></section>
+<section class="page" id="welcome"><div class="section-head"><div class="eyebrow">CHÀO MỪNG ANH ĐẾN VỚI NGÀY CỦA MÌNH</div><h2>Bin tới rồi hả!</h2><p>Hôm nay là ngày của Bin.<br>Em đã chuẩn bị một chút bất ngờ, anh cứ thong thả khám phá nha.</p></div><div class="paper intro-grid"><img class="portrait" src="assets/new_71.jpg" alt="Ảnh đại diện của Tú"><div><div class="tag">MAIN CHARACTER: BIN</div><div class="quote">“Sinh nhật anh, em gom vài chuyện vui của tụi mình vào đây. Coi thử anh còn nhớ được bao nhiêu nha.”</div><p class="muted">Em gom lại ảnh cũ, ảnh mới, mấy video và vài chuyện nhỏ mà em nghĩ sau này xem lại vẫn vui. Anh cứ thong thả khám phá nha.</p><p class="muted">Hôm nay anh cứ làm nhân vật chính đi. Em đứng phía sau lo phần bất ngờ, còn anh chỉ việc tận hưởng thôi. 😌</p><button class="btn" onclick="go('memories')">ĐI THÔI ANH ƠI →</button></div></div></section>
+<section class="page" id="memories"><div class="section-head"><div class="eyebrow">KHO LƯU TRỮ KỶ NIỆM</div><h2>Album của hai đứa mình</h2><p>Ảnh cũ, ảnh mới, vài khoảnh khắc hơi ngố và cả video nữa. Mình xem từng chút thôi, không cần cuộn mỏi tay đâu.</p></div><div class="filters"><button class="filter on" onclick="filterGallery('all',this)">Tất cả kỷ niệm</button><button class="filter" onclick="filterGallery('old',this)">Hồi nhỏ · OLD</button><button class="filter" onclick="filterGallery('new',this)">Ảnh mới</button><button class="filter" onclick="filterGallery('couple',this)">Hai đứa mình ♥</button><button class="filter" onclick="filterGallery('cats',this)">Boss mèo 🐾</button></div><div class="grid" id="gallery"></div><div class="gallery-pager"><button class="filter" id="galleryPrev" onclick="changeGalleryPage(-1)" disabled>← Trước</button><span id="galleryPageLabel">Trang 1</span><button class="filter" id="galleryNext" onclick="changeGalleryPage(1)">Xem tiếp →</button></div><div class="btn-row"><button class="btn secondary" onclick="go('playroom')">VÀO PHÒNG GIẢI TRÍ 🎮</button></div></section>
+<section class="page" id="playroom"><div class="section-head"><div class="eyebrow">PHÒNG GIẢI TRÍ · BONUS ROUND</div><h2>Chơi thêm một chút nha anh!</h2><p>Lật thẻ tìm đủ 6 cặp ảnh rồi mới được qua vòng nha. Gieo quẻ xin sâm là phần thưởng thêm, không tính điểm đâu. 😌</p></div><div class="playroom-grid"><div class="play-card"><div class="tag">GAME 01 · MEMORY MATCH</div><h3 style="color:var(--wine);margin:8px 0">Lật thẻ tìm cặp ảnh</h3><p class="muted">Có 6 khoảnh khắc của hai đứa mình. Lật hai thẻ mỗi lượt, tìm đủ 6 cặp mới mở được cửa tiếp theo. Nhớ ảnh người yêu là lợi thế đó!</p><div class="memory-stats"><span id="memoryMoves">Lượt lật: 0</span><span id="memoryPairs">Đã tìm: 0/6</span></div><div class="memory-grid" id="memoryGrid" aria-label="Trò chơi tìm cặp ảnh"></div><div class="wish-result" id="memoryResult" aria-live="polite">Sẵn sàng chưa anh? ♥</div><div class="btn-row"><button class="btn secondary" onclick="startMemoryGame()">CHƠI LẠI</button></div></div><div class="play-card xin-sam-card"><div class="tag">GAME 02 · XIN SÂM TUỔI 28</div><h3 style="color:var(--wine);margin:8px 0">Gieo quẻ xin sâm – Vận may đã được duyệt 🍀</h3><p class="muted">Bin thành tâm lắc ống xin sâm nha. Mỗi lần rút là một lời chúc lành; quẻ nào cũng đại cát, vì hôm nay mọi điều tốt đẹp đều dành cho anh. 🤭</p><div class="sam-stage"><div class="sam-halo"></div><div class="sam-stick-cup" id="samCup" aria-label="Ống đựng thẻ xin sâm"><div class="sam-cup-top"></div><div class="sam-sticks"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="sam-cup-body"><span>福</span><small>XIN SÂM<br/>TUỔI 28</small></div><div class="sam-cup-base"></div></div><div class="sam-lucky-cloud">✦　🍀　✦</div></div><div class="sam-instruction">Chắp tay xin một quẻ, lắc nhẹ ống rồi nhận lộc nha anh.</div><div class="wish-result sam-result" id="wishResult" aria-live="polite">🌿 Một quẻ lành đang chờ chủ nhân tuổi 28.</div><div class="btn-row"><button class="btn" id="spinWishBtn" onclick="drawFortune()">LẮC ỐNG XIN SÂM 🧧</button></div></div><div class="btn-row"><button class="btn" id="memoryContinue" onclick="go('cats')" disabled>HOÀN THÀNH GAME ĐỂ GẶP HAI BOSS →</button></div><p class="muted" id="memoryGateHint" style="text-align:center;font-size:12px">Tìm đủ 6 cặp ảnh để mở khóa vòng tiếp theo nha.</p></div></section><section class="page" id="cats"><div class="section-head"><div class="eyebrow">HỘI ĐỒNG HAI BOSS · CAT QA</div><h2>Ba câu hỏi từ hai boss</h2><p>Chỉ 3 câu thôi nha. Xem anh có thật sự hiểu hai sếp ở nhà không!</p></div><div class="intro-grid" style="margin-bottom:18px"><div class="paper" style="text-align:center;padding:14px"><img src="assets/new_53.jpg" alt="Bo mèo vàng" class="cat-portrait"><h3 style="color:var(--wine);margin:10px 0 4px">Bo · Boss vàng ú nu</h3><p class="muted" style="margin:0">Nghe tiếng đồ ăn là có mặt đầu tiên. 😼</p></div><div class="paper" style="text-align:center;padding:14px"><img src="assets/new_43.jpg" alt="Lựu mèo mướp" class="cat-portrait"><h3 style="color:var(--wine);margin:10px 0 4px">Lựu · Boss mèo mướp</h3><p class="muted" style="margin:0">Tinh nghịch, tò mò và hay tự kiếm chuyện vui. 🐾</p></div></div><div class="paper quiz"><div class="tag">BÀI KIỂM TRA SEN LÔNG</div><div class="progress"><span id="catProgress"></span></div><div id="catQuiz"></div><div class="feedback" id="catFeedback"></div><button class="btn" id="catNext" onclick="nextQuiz('cat')" style="display:none">Câu tiếp theo →</button></div></section>
+<section class="page" id="network"><div class="section-head"><div class="eyebrow">PHÒNG THỰC HÀNH HẠ TẦNG · NETWORK OPS</div><h2>Anh Tú xử lý sự cố trong 30 giây?</h2><p>Toàn tình huống ngoài đời của dân hạ tầng: subnet, VLAN, DHCP, routing và xử lý sự cố. Không hỏi mẹo vặt, chỉ hỏi cách anh sẽ xử lý khi hệ thống đang chạy thật. 😎</p></div><div class="terminal"><div class="green">tu@ha-tang:~$ ./kiem_tra_he_thong.sh</div><div>Đang nạp tình huống vận hành thực tế...</div><div class="gold">[INFO] 5 tình huống hạ tầng thực tế đã sẵn sàng</div><div class="green">[READY] Anh Tú vào việc thôi!</div></div><div class="paper quiz" style="margin-top:18px"><div class="progress"><span id="netProgress"></span></div><div id="netQuiz"></div><div class="feedback" id="netFeedback"></div><button class="btn" id="netNext" onclick="nextQuiz('net')" style="display:none">Câu tiếp theo →</button></div></section>
+<section class="page" id="cake"><div class="section-head"><div class="eyebrow">BÀN TIỆC SINH NHẬT · 28 NĂM RỒI NHA</div><h2>Happy Birthday, Bin! 🎉</h2><p>Đến phần quan trọng nhất rồi. Ước một điều rồi thổi nến nha anh!</p></div><div class="paper cake-wrap"><div class="cake-scene"><div class="cake-photo-topper"><img src="assets/bin_child_cake.jpg" alt="Bin hồi nhỏ bên chiếc bánh sinh nhật"><span>Bin · ngày ấy</span></div><div class="birthday-cake" aria-label="Bánh sinh nhật nhiều tầng"><div class="cake-candles"><span class="cake-candle"><i></i></span><span class="cake-candle"><i></i></span><span class="cake-candle"><i></i></span></div><div class="cake-top"></div><div class="cake-tier tier-top"><span class="icing-drip"></span><b>28</b><i class="berry berry-a"></i><i class="berry berry-b"></i><i class="berry berry-c"></i></div><div class="cake-tier tier-bottom"><span class="icing-drip"></span><i class="berry berry-d"></i><i class="berry berry-e"></i><i class="berry berry-f"></i></div><div class="cake-plate"></div></div><div class="cake-sparkles">✦　♡　✦　♡　✦</div></div><p class="cake-instruction" id="cakeMessage">Nhắm mắt ước một điều, rồi thổi nến nha. 🕯️</p><button class="btn" id="blowBtn" onclick="blow()">THỔI NẾN ĐI ANH 🕯️</button><div class="cake-melody"><div class="melody-icon">🎹</div><div class="melody-copy"><b>Giai điệu dành riêng cho chiếc bánh này</b><span id="cakeMusicStatus">Chạm để bật một chút nhạc xinh nha</span></div><button class="melody-toggle" onclick="toggleCakeMusic()" id="cakeMusicBtn" aria-label="Bật hoặc tạm dừng nhạc bánh">▶</button><div class="melody-wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div></div><div class="btn-row"><button class="btn secondary" onclick="go('secret')">ĐI TỚI MÓN QUÀ BÍ MẬT →</button><button class="btn secondary" onclick="go('welcome')">QUAY LẠI HÀNH TRÌNH</button></div></section>
+<section class="page" id="secret"><div class="section-head"><div class="eyebrow">MẬT THƯ CUỐI CÙNG · CHỈ ANH ĐƯỢC MỞ</div><h2>Quà bí mật đang chờ anh nè!</h2><p>Bo nhận nhiệm vụ giữ bí mật. Muốn biết bên trong là gì thì nhập mật khẩu, rồi nhớ gặp em để nhận quà thật nha!</p></div><div class="paper secret"><img src="assets/secret_bo_teaser.png" alt="Bo giữ bí mật món quà" style="width:100%;max-width:560px;border-radius:18px;display:block;margin:0 auto 22px;box-shadow:0 12px 35px #76232b20"><p class="muted">Bo đã nhận nhiệm vụ canh giữ món quà. Muốn biết trong chiếc hộp đỏ có gì… thì phải gặp em ấy nha. 🤫</p><div style="font-size:56px">🎁</div><div class="quote">Nhập mật khẩu bí mật</div><p class="muted">Gợi ý: hai chữ thôi, nghe là nhớ ngay tới một chiếc bụng tròn ú nu. 🤭</p><input id="pass" type="password" placeholder="Nhập mật khẩu bí mật" autocomplete="off" onkeydown="if(event.key==='Enter'){event.preventDefault();unlock()}"><button class="btn" onclick="unlock()">MỞ QUÀ NÀO ANH ƠI 🎁</button><div class="feedback" id="passFeedback"></div><div class="letter" id="letter"><div class="eyebrow">GỬI NGƯỜI EM THƯƠNG</div><h2 class="serif" style="color:var(--wine)">Gửi Bin,</h2><p>Chúc mừng sinh nhật anh. Mong tuổi 28 có nhiều ngày vui, nhiều chuyến đi hay, công việc thuận lợi và sức khỏe lúc nào cũng ổn áp. Mong anh có thêm thật nhiều điều để mong chờ.</p><p>Cảm ơn anh vì đã cùng em gom được nhiều kỷ niệm dễ thương — từ những chuyến đi, những bữa ăn, mấy lần chụp hình không biết tạo dáng sao, tới chuyện sống chung với hai boss khó chiều.</p><p>Em không giỏi nói mấy câu sến súa, nên em làm một chiếc website nhỏ để anh xem lại những chuyện vui của tụi mình. Có ảnh cũ, ảnh mới, có Bo, có Lựu và nhiều chuyện nhỏ mà em muốn giữ lại.</p><p>Ka biết dạo này anh nhận nhiều dự án, lịch trình chắc cũng dày hơn bình thường. Mong anh cứ làm từng việc một, không cần tự ép mình phải xử lý mọi thứ thật hoàn hảo cùng lúc. Nhớ ăn uống đàng hoàng, nghỉ một chút khi cần và cho bản thân vài khoảng thở nha. Có những hôm mệt quá thì cứ tạm gác công việc xuống — về nhà còn hai boss chờ sai vặt, với Ka chờ nghe anh kể chuyện nữa. 😼</p><p class="quote">Ka không mong anh lúc nào cũng phải thật giỏi hay thật mạnh mẽ đâu. Chỉ mong Bin khỏe, vui, làm được những điều mình muốn và vẫn có thời gian tận hưởng cuộc sống ngoài công việc. Có chuyện vui thì kể Ka nghe, có chuyện mệt thì mình nghỉ một chút rồi tính tiếp. Ka vẫn ở phe anh. ❤️</p><p style="text-align:right">— Ka ♥</p><div class="close-letter-hint" role="note"><span class="hint-arrow" aria-hidden="true">⬇</span><span>Đọc xong rồi nhớ <b>đóng thiệp</b> nha anh — còn một món quà cuối đang chờ đó! 💌</span><span class="hint-arrow" aria-hidden="true">⬇</span></div><div class="btn-row"><button class="btn secondary close-letter-btn" onclick="closeLetter()">ĐÓNG THƯ ĐỂ XEM ĐOẠN CUỐI 💌</button></div></div><div class="letter-nav" id="letterNav"><p class="muted">Đọc xong rồi thì mình quay lại hành trình nha. Không có lạc đâu, Ka để sẵn đường về rồi. 😌</p><div class="btn-row"><button class="btn" onclick="go('cake')">QUAY LẠI BÀN TIỆC 🎂</button><button class="btn secondary" onclick="go('welcome')">VỀ ĐẦU HÀNH TRÌNH</button></div></div></div></section>
+<div class="footer">EM TỰ TAY CHUẨN BỊ ĐÓ · ANH NHỚ VUI LÀ ĐƯỢC · BIRTHDAY QUEST 28</div>
+</main>
+<div class="cake-video-modal" id="cakeVideoModal" aria-hidden="true"><div class="cake-video-card"><button class="close cake-video-close" onclick="closeCakeVideo()" aria-label="Đóng video">×</button><p class="cake-video-title">Món quà sau khi thổi nến nè, Bin! 😹</p><video id="cakeSurpriseVideo" controls playsinline preload="metadata"><source src="assets/cake_cat_surprise.mp4" type="video/mp4">Trình duyệt chưa hỗ trợ video.</video><button class="btn secondary" onclick="closeCakeVideo()">ĐÓNG VIDEO, QUAY LẠI BÁNH 🎂</button></div></div><div id="ambientGarden" aria-hidden="true"></div><div class="cat-walker" aria-hidden="true"><span class="walking-cat">🐈</span><span class="walking-paws">🐾　🐾　🐾</span></div><div class="lightbox" id="lightbox" onclick="closeLightbox()"><button class="close" aria-label="Đóng">×</button><img id="lightImg" src="" alt="Ảnh kỷ niệm"></div><div class="toast" id="toast"></div>
+<script>
+const photos=[{"src": "assets/old_01.jpg", "group": "old", "index": 1}, {"src": "assets/old_02.jpg", "group": "old", "index": 2}, {"src": "assets/old_03.jpg", "group": "old", "index": 3}, {"src": "assets/old_04.jpg", "group": "old", "index": 4}, {"src": "assets/old_05.jpg", "group": "old", "index": 5}, {"src": "assets/old_06.jpg", "group": "old", "index": 6}, {"src": "assets/old_07.jpg", "group": "old", "index": 7}, {"src": "assets/old_08.jpg", "group": "old", "index": 8}, {"src": "assets/old_09.jpg", "group": "old", "index": 9}, {"src": "assets/old_10.jpg", "group": "old", "index": 10}, {"src": "assets/old_11.jpg", "group": "old", "index": 11}, {"src": "assets/old_12.jpg", "group": "old", "index": 12}, {"src": "assets/old_13.jpg", "group": "old", "index": 13}, {"src": "assets/old_14.jpg", "group": "old", "index": 14}, {"src": "assets/old_15.jpg", "group": "old", "index": 15}, {"src": "assets/old_16.jpg", "group": "old", "index": 16}, {"src": "assets/old_17.jpg", "group": "old", "index": 17}, {"src": "assets/old_18.jpg", "group": "old", "index": 18}, {"src": "assets/old_19.jpg", "group": "old", "index": 19}, {"src": "assets/old_20.jpg", "group": "old", "index": 20}, {"src": "assets/old_21.jpg", "group": "old", "index": 21}, {"src": "assets/old_22.jpg", "group": "old", "index": 22}, {"src": "assets/old_23.jpg", "group": "old", "index": 23}, {"src": "assets/new_02.jpg", "group": "new", "index": 2}, {"src": "assets/new_03.jpg", "group": "new", "index": 3}, {"src": "assets/new_05.jpg", "group": "new", "index": 5}, {"src": "assets/new_06.jpg", "group": "new", "index": 6}, {"src": "assets/new_07.jpg", "group": "new", "index": 7}, {"src": "assets/new_08.jpg", "group": "new", "index": 8}, {"src": "assets/new_09.jpg", "group": "new", "index": 9}, {"src": "assets/new_10.jpg", "group": "new", "index": 10}, {"src": "assets/new_11.jpg", "group": "new", "index": 11}, {"src": "assets/new_12.jpg", "group": "new", "index": 12}, {"src": "assets/new_13.jpg", "group": "new", "index": 13}, {"src": "assets/new_14.jpg", "group": "new", "index": 14}, {"src": "assets/new_15.jpg", "group": "new", "index": 15}, {"src": "assets/new_16.jpg", "group": "new", "index": 16}, {"src": "assets/new_17.jpg", "group": "new", "index": 17}, {"src": "assets/new_18.jpg", "group": "new", "index": 18}, {"src": "assets/new_19.jpg", "group": "new", "index": 19}, {"src": "assets/new_20.jpg", "group": "new", "index": 20}, {"src": "assets/new_21.jpg", "group": "new", "index": 21}, {"src": "assets/new_22.jpg", "group": "new", "index": 22}, {"src": "assets/new_23.jpg", "group": "new", "index": 23}, {"src": "assets/new_24.jpg", "group": "new", "index": 24}, {"src": "assets/new_25.jpg", "group": "new", "index": 25}, {"src": "assets/new_26.jpg", "group": "new", "index": 26}, {"src": "assets/new_27.jpg", "group": "new", "index": 27}, {"src": "assets/new_28.jpg", "group": "new", "index": 28}, {"src": "assets/new_29.jpg", "group": "new", "index": 29}, {"src": "assets/new_30.jpg", "group": "new", "index": 30}, {"src": "assets/new_31.jpg", "group": "new", "index": 31}, {"src": "assets/new_32.jpg", "group": "new", "index": 32}, {"src": "assets/new_33.jpg", "group": "new", "index": 33}, {"src": "assets/new_34.jpg", "group": "new", "index": 34}, {"src": "assets/new_35.jpg", "group": "new", "index": 35}, {"src": "assets/new_36.jpg", "group": "new", "index": 36}, {"src": "assets/new_37.jpg", "group": "new", "index": 37}, {"src": "assets/new_38.jpg", "group": "new", "index": 38}, {"src": "assets/new_39.jpg", "group": "new", "index": 39}, {"src": "assets/new_40.jpg", "group": "new", "index": 40}, {"src": "assets/new_41.jpg", "group": "new", "index": 41}, {"src": "assets/new_42.jpg", "group": "new", "index": 42}, {"src": "assets/new_43.jpg", "group": "new", "index": 43}, {"src": "assets/new_44.jpg", "group": "new", "index": 44}, {"src": "assets/new_45.jpg", "group": "new", "index": 45}, {"src": "assets/new_46.jpg", "group": "new", "index": 46}, {"src": "assets/new_47.jpg", "group": "new", "index": 47}, {"src": "assets/new_48.jpg", "group": "new", "index": 48}, {"src": "assets/new_49.jpg", "group": "new", "index": 49}, {"src": "assets/new_50.jpg", "group": "new", "index": 50}, {"src": "assets/new_52.jpg", "group": "new", "index": 52}, {"src": "assets/new_53.jpg", "group": "new", "index": 53}, {"src": "assets/new_54.jpg", "group": "new", "index": 54}, {"src": "assets/new_55.jpg", "group": "new", "index": 55}, {"src": "assets/new_56.jpg", "group": "new", "index": 56}, {"src": "assets/new_57.jpg", "group": "new", "index": 57}, {"src": "assets/new_58.jpg", "group": "new", "index": 58}, {"src": "assets/new_59.jpg", "group": "new", "index": 59}, {"src": "assets/new_60.jpg", "group": "new", "index": 60}, {"src": "assets/new_61.jpg", "group": "new", "index": 61}, {"src": "assets/new_62.jpg", "group": "new", "index": 62}, {"src": "assets/new_63.jpg", "group": "new", "index": 63}, {"src": "assets/new_64.jpg", "group": "new", "index": 64}, {"src": "assets/new_65.jpg", "group": "new", "index": 65}, {"src": "assets/new_66.jpg", "group": "new", "index": 66}, {"src": "assets/new_67.jpg", "group": "new", "index": 67}, {"src": "assets/new_68.jpg", "group": "new", "index": 68}, {"src": "assets/new_69.jpg", "group": "new", "index": 69}, {"src": "assets/new_70.jpg", "group": "new", "index": 70}, {"src": "assets/new_71.jpg", "group": "new", "index": 71}, {"src": "assets/new_72.jpg", "group": "new", "index": 72}, {"src": "assets/new_73.jpg", "group": "new", "index": 73}, {"src": "assets/new_74.jpg", "group": "new", "index": 74}, {"src": "assets/new_75.jpg", "group": "new", "index": 75}, {"src": "assets/new_76.jpg", "group": "new", "index": 76}, {"src": "assets/new_77.jpg", "group": "new", "index": 77}, {"src": "assets/new_78.jpg", "group": "new", "index": 78}, {"src": "assets/new_79.jpg", "group": "new", "index": 79}, {"src": "assets/new_80.jpg", "group": "new", "index": 80}, {"src": "assets/new_81.jpg", "group": "new", "index": 81}, {"src": "assets/new_82.jpg", "group": "new", "index": 82}, {"src": "assets/new_83.jpg", "group": "new", "index": 83}, {"src": "assets/new_84.jpg", "group": "new", "index": 84}, {"src": "assets/new_85.jpg", "group": "new", "index": 85}, {"src": "assets/new_86.jpg", "group": "new", "index": 86}];
+
+
+const catQuestions=[
+ {q:'Bo có thể làm gì khi nghe tiếng mở đồ ăn?',a:['Xuất hiện nhanh hơn shipper','Giả vờ không quan tâm','Đi trốn vào phòng','Mang đồ chơi tới đổi thức ăn'],c:0,why:'Bo là chiếc bụng biết đi — nghe tiếng đồ ăn là có mặt liền. 😼'},
+ {q:'Lựu nổi tiếng với tính cách nào?',a:['Hiền khô, ngồi yên cả ngày','Tinh nghịch, thích tự tìm trò vui','Chỉ thích ngủ và ăn','Sợ mọi món đồ chơi'],c:1,why:'Lựu là đứa tinh nghịch, lúc nào cũng có cách tự bày trò.'},
+ {q:'Nếu Lựu đang nghịch mà Bo nghe tiếng đổ hạt, chuyện gì dễ xảy ra nhất?',a:['Bo chạy tới kiểm tra đồ ăn, Lựu tiếp tục bày trò','Cả hai ngồi họp nghiêm túc','Lựu đi nấu cơm','Bo nhường hết phần ăn'],c:0,why:'Một đứa mê ăn, một đứa mê nghịch — đúng bộ đôi không để sen yên.'}
+];
+const netQuestions=[
+ {q:'Một máy trạm tự nhận IP 169.254.18.7 và không vào được mạng nội bộ. Anh kiểm tra gì trước?',a:['Kiểm tra DNS client và cache phân giải tên','Kiểm tra DHCP lease, VLAN access port và DHCP relay','Kiểm tra route mặc định trên máy trạm','Kiểm tra link và trạng thái cổng switch'],c:1,why:'169.254.x.x là địa chỉ APIPA, thường xuất hiện khi máy không nhận được DHCP lease. Kiểm tra VLAN/port, DHCP scope và relay/helper.'},
+ {q:'Địa chỉ mạng của host 192.168.10.34/27 là địa chỉ nào?',a:['192.168.10.0','192.168.10.16','192.168.10.32','192.168.10.64'],c:2,why:'/27 có subnet mask 255.255.255.224, mỗi subnet gồm 32 địa chỉ. Dải chứa .34 bắt đầu từ .32.'},
+ {q:'VLAN 30 đã tạo nhưng không đi qua trunk giữa hai switch. Anh nên kiểm tra gì?',a:['Allowed VLAN list và trạng thái VLAN ở cả hai đầu trunk','Bảng ARP và default route trên router','DNS suffix và gateway trên máy trạm','Port security trên các access port'],c:0,why:'Kiểm tra VLAN đã tồn tại và được allow trên trunk ở cả hai đầu bằng show vlan brief và show interfaces trunk.'},
+ {q:'Máy ping được gateway nhưng không tới được server 10.20.30.40 ở subnet khác. Bước tiếp theo hợp lý nhất?',a:['Đổi DNS server trên máy trạm','Kiểm tra route hai chiều, ACL và đường về từ subnet đích','Xóa cache ARP rồi đổi hostname','Đổi speed/duplex của cổng access'],c:1,why:'Gateway local đã reachable; cần kiểm tra routing path, ACL/firewall và return route ở phía mạng đích.'},
+ {q:'Người dùng truy cập được server bằng IP nhưng tên miền nội bộ không phân giải. Anh kiểm tra gì?',a:['DHCP relay và native VLAN trên trunk','STP root bridge và trạng thái port','DNS resolver, bản ghi và kết quả nslookup','Subnet mask và route mặc định của server'],c:2,why:'IP vẫn hoạt động nên tập trung vào DNS client/resolver, record A/CNAME và kiểm tra bằng nslookup.'}
+];
+
+let currentFilter='all',galleryPage=0,catIndex=0,netIndex=0,catScore=0,netScore=0;
+const PAGE_SIZE=12;
+function openEnvelope(){startMainMusic();document.querySelector('.envelope-card')?.classList.add('opened');setTimeout(()=>go('invite'),650);}
+function startMainMusic(){
+ const a=document.getElementById('mainAudio'),state=document.getElementById('musicState');
+ if(mainEnabled)return;
+ mainEnabled=true;state.textContent='BẬT';a.src=mainTracks[mainTrack];a.volume=0;a.load();
+ a.play().then(()=>{setMainVolume(ducked?.24:.62,1000);toast('Playlist của Ka và Bin bắt đầu rồi 🎶')}).catch(()=>{state.textContent='TẮT';mainEnabled=false;toast('Nếu nhạc chưa chạy, anh chạm nút Nhạc ở góc trên nha')});
+}
+function go(id){
+ const wasCake=document.getElementById('cake').classList.contains('active');
+ if(id==='cake'){pauseMainForCake();} else if(wasCake){resumeMainAfterCake();}
+ document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+ document.getElementById(id).classList.add('active');
+ window.scrollTo({top:0,behavior:'smooth'});
+ if(id==='memories'){galleryPage=0;renderGallery()}
+ if(id==='playroom'){startMemoryGame();document.getElementById('wishResult').textContent='🌿 Một quẻ lành đang chờ chủ nhân tuổi 28.';document.getElementById('samCup').classList.remove('sam-shake','sam-reveal');document.getElementById('spinWishBtn').disabled=false;document.getElementById('spinWishBtn').textContent='LẮC ỐNG XIN SÂM 🧧'}
+ if(id==='cake'){tryStartCakeMusic()}
+ spawnClover();
+ updateDuckState();
+}
+// Ảnh có một nam và một nữ được xếp vào nhóm ảnh của hai đứa mình.
+const couplePhotoIds=[6, 10, 13, 15, 26, 27, 36, 45, 54, 67, 69, 70, 72, 73, 74, 76, 77, 80, 81, 85, 86];
+const catPhotoIds=[2, 3, 7, 9, 11, 12, 18, 19, 24, 28, 33, 40, 41, 43, 48, 53, 57, 59, 64, 82, 83, 84];
+const couplePhotos=couplePhotoIds.map(n=>photos.find(p=>p.group==='new'&&p.index===n)).filter(Boolean);
+const catPhotos=catPhotoIds.map(n=>photos.find(p=>p.group==='new'&&p.index===n)).filter(Boolean);
+const clips=[
+ {src:'assets/video_01.mp4',poster:'assets/video_01.jpg',title:'Một ngày bên biển',note:'Mở video xem lại khoảnh khắc này nha.'},
+ {src:'assets/video_02.mp4',poster:'assets/video_02.jpg',title:'Hai đứa mình',note:'Một đoạn nhỏ trong album của tụi mình.'},
+ {src:'assets/video_03.mp4',poster:'assets/video_03.jpg',title:'Chuyến đi đáng nhớ',note:'Có vài khoảnh khắc xem lại vẫn thấy vui.'},
+ {src:'assets/video_04.mp4',poster:'assets/video_04.jpg',title:'Thêm một kỷ niệm',note:'Lưu lại để sau này còn mở ra xem tiếp.'}
+];
+function hashOrder(list){
+ // Stable shuffle so similar consecutive frames are less likely to sit together.
+ let pool=list.slice(),out=[];
+ function dhash(src){
+  let n=parseInt((src.match(/_(\d+)\.jpg/)||[])[1]||0,10);
+  return (n*2654435761)>>>0;
+ }
+ while(pool.length){
+  if(!out.length){out.push(pool.shift());continue}
+  let prev=dhash(out[out.length-1].src);
+  pool.sort((a,b)=>{
+   const da=((dhash(a.src)^prev)>>>0).toString(2).replace(/0/g,'').length;
+   const db=((dhash(b.src)^prev)>>>0).toString(2).replace(/0/g,'').length;
+   return db-da;
+  });
+  out.push(pool.shift());
+ }
+ return out;
+}
+function mixedAll(){
+ const old=photos.filter(p=>p.group==='old');
+ const newer=hashOrder(photos.filter(p=>p.group==='new'));
+ const out=[];let oi=0,ni=0;
+ while(oi<old.length||ni<newer.length){
+  if(oi<old.length)out.push(old[oi++]);
+  if(ni<newer.length)out.push(newer[ni++]);
+  if(oi<old.length&&ni<newer.length&&out.length%8===0)out.push(newer[ni++]);
+ }
+ return out;
+}
+function renderGallery(){
+ let list=currentFilter==='all'?mixedAll():currentFilter==='old'?photos.filter(p=>p.group==='old'):currentFilter==='couple'?couplePhotos:currentFilter==='cats'?catPhotos:photos.filter(p=>p.group==='new'&&!couplePhotoIds.includes(p.index)&&!catPhotoIds.includes(p.index));
+ let mixed=list.map(p=>({kind:'photo',...p}));
+ // Couple videos stay with the couple album; the all-photos view also interleaves them.
+ if(currentFilter==='couple'){
+  clips.forEach(clip=>mixed.push({kind:'video',...clip,group:'new'}));
+ }else if(currentFilter==='all'){
+  clips.forEach((clip,i)=>mixed.splice(Math.min((i+1)*15+i,mixed.length),0,{kind:'video',...clip,group:'new'}));
+ }
+ const totalPages=Math.max(1,Math.ceil(mixed.length/PAGE_SIZE));
+ galleryPage=Math.min(galleryPage,totalPages-1);
+ const pageItems=mixed.slice(galleryPage*PAGE_SIZE,(galleryPage+1)*PAGE_SIZE);
+ document.getElementById('gallery').innerHTML=pageItems.map(p=>p.kind==='video'
+  ? `<article class="video-card"><video controls playsinline preload="metadata" poster="${p.poster}"><source src="${p.src}" type="video/mp4">Trình duyệt chưa hỗ trợ video.</video><div class="video-caption">▶ ${p.title}<small>${p.note}</small></div></article>`
+  : `<div class="photo" onclick="openPhoto('${p.src}')"><img loading="lazy" src="${p.src}" alt="Kỷ niệm ${p.group} ${p.index}"><small>${p.group==='old'?'HỒI ẤY':(currentFilter==='couple'?'KA & BIN · ẢNH ĐÔI':(currentFilter==='cats'?'BOSS MÈO · KỶ NIỆM':'NHỮNG NGÀY GẦN ĐÂY'))} · ${String(p.index).padStart(2,'0')}</small></div>`
+ ).join('');
+ document.getElementById('galleryPageLabel').textContent=`Trang ${galleryPage+1} / ${totalPages}`;
+ document.getElementById('galleryPrev').disabled=galleryPage===0;
+ document.getElementById('galleryNext').disabled=galleryPage>=totalPages-1;
+}
+function changeGalleryPage(delta){galleryPage+=delta;renderGallery();document.getElementById('gallery').scrollIntoView({behavior:'smooth',block:'start'})}
+function filterGallery(f,b){currentFilter=f;galleryPage=0;document.querySelectorAll('.filter').forEach(x=>x.classList.remove('on'));b.classList.add('on');renderGallery()}
+function openPhoto(src){document.getElementById('lightImg').src=src;document.getElementById('lightbox').classList.add('open')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+
+
+function drawQuiz(type){
+ updateDuckState();
+ let isCat=type==='cat',arr=isCat?catQuestions:netQuestions,idx=isCat?catIndex:netIndex,q=arr[idx],prefix=isCat?'cat':'net';
+ document.getElementById(prefix+'Progress').style.width=(idx/arr.length*100)+'%';
+ document.getElementById(prefix+'Quiz').innerHTML=`<div class="tag">CÂU ${idx+1} / ${arr.length}</div><div class="question">${q.q}</div><div class="answers">${q.a.map((a,i)=>`<button class="answer" onclick="answer('${type}',${i})">${String.fromCharCode(65+i)}. ${a}</button>`).join('')}</div>`;
+ const fb=document.getElementById(prefix+'Feedback');fb.textContent='';fb.className='feedback';
+ document.getElementById(prefix+'Next').style.display='none';
+}
+function answer(type,choice){
+ let isCat=type==='cat',arr=isCat?catQuestions:netQuestions,idx=isCat?catIndex:netIndex,q=arr[idx],prefix=isCat?'cat':'net';
+ const buttons=[...document.querySelectorAll('#'+prefix+'Quiz .answer')];
+ const fb=document.getElementById(prefix+'Feedback');
+ const ok=choice===q.c;
+ if(ok){
+  buttons.forEach((b,i)=>{b.disabled=true;if(i===q.c)b.classList.add('correct')});
+  if(isCat)catScore++;else netScore++;
+  fb.className='feedback good';fb.textContent='Đúng rồi đó! ✓ '+q.why;
+  document.getElementById(prefix+'Next').style.display='inline-block';
+  toast('Chính xác! Anh nhớ chuẩn luôn 👏');
+ }else{
+  buttons[choice].classList.add('wrong');
+  fb.className='feedback bad';fb.textContent='Chưa đúng rồi 😼 Thử chọn lại nha anh — chưa qua câu này đâu!';
+  toast('Chưa đúng, thử lại một đáp án khác nha!');
+  // Keep the other options enabled so the player can retry.
+ }
+}
+
+function nextQuiz(type){let isCat=type==='cat',arr=isCat?catQuestions:netQuestions,prefix=isCat?'cat':'net',idx=isCat?catIndex:netIndex;if(idx<arr.length-1){if(isCat)catIndex++;else netIndex++;drawQuiz(type)}else{document.getElementById(prefix+'Progress').style.width='100%';document.getElementById(prefix+'Quiz').innerHTML=`<div class="question"> ${isCat?'Hai boss':'Hạ tầng'} đã chấm bài xong!</div><p class="muted">Điểm của anh: <b>${isCat?catScore:netScore}/${arr.length}</b>. ${isCat?'Hai boss đã duyệt anh làm sen chính thức!':'Hội đồng hạ tầng xác nhận: anh vẫn là người cầm trịch hệ thống. Em chỉ đứng cạnh đưa nước và cổ vũ thôi!'}</p>`;document.getElementById(prefix+'Feedback').textContent='';document.getElementById(prefix+'Next').style.display='none';setTimeout(()=>{if(isCat)go('network');else go('cake')},1800)}}
+let cakeWasPlayingBeforeClip=false;
+function blow(){
+ document.querySelectorAll('.cake-candle i').forEach(x=>x.style.opacity='0');
+ document.getElementById('cakeMessage').textContent='Nến tắt rồi! Chúc Bin tuổi mới thật vui nha. ❤️';
+ document.getElementById('blowBtn').textContent='XEM LẠI MÀN MÈO BAY 😹';
+ toast('Điều ước đã được gửi lên vũ trụ ✨');celebrate();
+ const cakeAudio=document.getElementById('cakeAudio'),video=document.getElementById('cakeSurpriseVideo');
+ cakeWasPlayingBeforeClip=!cakeAudio.paused;
+ if(cakeWasPlayingBeforeClip)cakeAudio.pause();
+ const modal=document.getElementById('cakeVideoModal');modal.classList.add('open');modal.setAttribute('aria-hidden','false');
+ video.currentTime=0;video.play().catch(()=>toast('Anh bấm nút phát trên video để xem màn mèo xuất hiện nha 😹'));
+}
+function closeCakeVideo(){
+ const video=document.getElementById('cakeSurpriseVideo'),modal=document.getElementById('cakeVideoModal');
+ video.pause();video.currentTime=0;modal.classList.remove('open');modal.setAttribute('aria-hidden','true');
+ if(cakeWasPlayingBeforeClip&&document.getElementById('cake').classList.contains('active')){
+  const a=document.getElementById('cakeAudio');a.play().then(()=>{document.getElementById('cakeMusicBtn').textContent='Ⅱ';document.getElementById('cakeMusicStatus').textContent='Đang ngân nga… ♪'}).catch(()=>{});
+ }
+ cakeWasPlayingBeforeClip=false;
+}
+function unlock(){
+ let val=document.getElementById('pass').value.trim().toLowerCase();
+ if(val==='bomap'){
+  document.getElementById('letter').style.display='';document.getElementById('letter').classList.add('show');document.getElementById('letterNav').style.display='none';
+  updateDuckState();
+  document.getElementById('passFeedback').textContent='Đúng rồi đó Bin! Bo duyệt cho mở quà rồi nè. 🎁';
+  updateDuckState();celebrate();
+ }else document.getElementById('passFeedback').textContent='Sai mật khẩu rồi, thử lại nha anh!';
+}
+function closeLetter(){
+ const letter=document.getElementById('letter');
+ letter.classList.remove('show');
+ letter.classList.add('closing');
+ document.getElementById('letterNav').style.display='none';
+ updateDuckState();
+ setTimeout(()=>{
+  letter.classList.remove('closing');
+  letter.style.display='none';
+  document.getElementById('letterNav').style.display='block';
+  showFarewellCat();
+ },1300);
+}
+function showFarewellCat(){
+ celebrate();
+ const old=document.getElementById('farewellCat');
+ if(old)old.remove();
+ const wrap=document.createElement('div');
+ wrap.id='farewellCat';wrap.className='farewell-cat';
+ wrap.innerHTML='<div class="farewell-bubble">Bin ơi, sinh nhật vui nha! Ka với hai boss chào anh! ❤️</div><div class="farewell-flight">🐈🎈 <span>🐾 ✨ 🐾</span></div>';
+ document.body.appendChild(wrap);
+ setTimeout(()=>{wrap.remove();openFarewellVideo();},7500);
+}
+function openFarewellVideo(){
+ const layer=document.getElementById('farewellVideo');
+ layer.classList.add('open');
+ const v=document.getElementById('farewellCatVideo');
+ v.muted=true;v.currentTime=0;
+ v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Video đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{
+  document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem đoạn chào cuối nha';
+ });
+}
+function toggleFarewellVideoSound(){
+ const v=document.getElementById('farewellCatVideo');
+ v.muted=!v.muted;
+ document.getElementById('farewellSoundBtn').textContent=v.muted?'BẬT TIẾNG 🔊':'TẮT TIẾNG 🔇';
+ if(!v.paused)v.play().catch(()=>{});
+}
+function playFarewellVideo(){
+ const v=document.getElementById('farewellCatVideo');v.muted=false;
+ v.play().then(()=>document.getElementById('farewellVideoStatus').textContent='Đang phát lời chào cuối 🐾').catch(()=>{});
+}
+function closeFarewellVideo(){
+ const layer=document.getElementById('farewellVideo');
+ const v=document.getElementById('farewellCatVideo');
+ v.pause();layer.classList.remove('open');
+}
+function celebrate(){
+ const colors=['#c69a45','#a83a32','#f0c96f','#6d9a63','#e9a6a2'];
+ for(let b=0;b<5;b++){
+  const x=12+Math.random()*76,y=12+Math.random()*42;
+  for(let i=0;i<24;i++){
+   const c=document.createElement('i'),a=(Math.PI*2*i)/24,r=45+Math.random()*75;
+   c.className='firework';c.style.left=x+'vw';c.style.top=y+'vh';c.style.background=colors[(i+b)%colors.length];
+   c.style.setProperty('--dx',Math.cos(a)*r+'px');c.style.setProperty('--dy',Math.sin(a)*r+'px');
+   document.body.appendChild(c);setTimeout(()=>c.remove(),1250);
+  }
+ }
+ for(let i=0;i<55;i++){
+  const c=document.createElement('span');c.className='confetti';c.textContent=['✦','♥','🍀','🐾'][i%4];
+  c.style.left=Math.random()*100+'vw';c.style.fontSize=(12+Math.random()*16)+'px';c.style.animationDelay=(Math.random()*.5)+'s';
+  document.body.appendChild(c);setTimeout(()=>c.remove(),3400);
+ }
+}
+function toggleCakeMusic(){
+ const a=document.getElementById('cakeAudio'),btn=document.getElementById('cakeMusicBtn');
+ if(a.paused){a.play().then(()=>{btn.textContent='Ⅱ';document.getElementById('cakeMusicStatus').textContent='Đang ngân nga… ♪'}).catch(()=>toast('Anh bấm phát lại giúp em nha 🎹'))}
+ else{a.pause();btn.textContent='▶';document.getElementById('cakeMusicStatus').textContent='Tạm nghỉ một chút nha'}
+}
+function tryStartCakeMusic(){
+ const a=document.getElementById('cakeAudio'),btn=document.getElementById('cakeMusicBtn');
+ if(a.paused){a.play().then(()=>{btn.textContent='Ⅱ';document.getElementById('cakeMusicStatus').textContent='Đang ngân nga… ♪'}).catch(()=>{document.getElementById('cakeMusicStatus').textContent='Chạm nút để nghe giai điệu xinh nha ♪'})}
+}
+let mainEnabled=false,mainTrack=0,ducked=false,fadeToken=0;
+const mainTracks=['assets/music_01.mp3','assets/music_02.mp3'];
+function setMainVolume(target,duration=700){
+ const a=document.getElementById('mainAudio'),start=a.volume,token=++fadeToken,t0=performance.now();
+ function step(now){
+  if(token!==fadeToken)return;
+  const p=Math.min(1,(now-t0)/duration);a.volume=Math.max(0,Math.min(1,start+(target-start)*p));
+  if(p<1)requestAnimationFrame(step);
+ }
+ requestAnimationFrame(step);
+}
+function updateDuckState(){
+ const letterOpen=document.getElementById('letter')?.classList.contains('show');
+ const shouldDuck=!!letterOpen;
+ if(shouldDuck!==ducked){ducked=shouldDuck;if(mainEnabled&&!document.getElementById('cake').classList.contains('active'))setMainVolume(ducked?.24:.62,850)}
+}
+function loadMainTrack(index,at=0){
+ const a=document.getElementById('mainAudio');mainTrack=index;a.src=mainTracks[index];a.load();
+ a.addEventListener('canplay',function once(){a.removeEventListener('canplay',once);a.currentTime=at;if(mainEnabled){a.volume=ducked?.24:.62;a.play().catch(()=>{})}},{once:true});
+}
+function toggleMusic(){
+ const a=document.getElementById('mainAudio'),state=document.getElementById('musicState');
+ if(!mainEnabled){
+  startMainMusic();
+ }else{
+  mainEnabled=false;a.pause();state.textContent='TẮT';toast('Đã tắt nhạc nha anh');
+ }
+}
+document.getElementById('mainAudio').addEventListener('ended',()=>{
+ if(!mainEnabled||document.getElementById('cake').classList.contains('active'))return;
+ mainTrack=(mainTrack+1)%mainTracks.length;loadMainTrack(mainTrack,0);
+});
+function pauseMainForCake(){
+ const main=document.getElementById('mainAudio'),cake=document.getElementById('cakeAudio');
+ main.pause();cake.pause();cake.currentTime=0;
+}
+function resumeMainAfterCake(){
+ const cake=document.getElementById('cakeAudio');cake.pause();cake.currentTime=0;
+ const btn=document.getElementById('cakeMusicBtn');if(btn)btn.textContent='▶';
+ if(mainEnabled){const main=document.getElementById('mainAudio');main.volume=0;main.play().then(()=>setMainVolume(ducked?.24:.62,850)).catch(()=>{})}
+}
+function toast(t){let el=document.getElementById('toast');el.textContent=t;el.style.display='block';setTimeout(()=>el.style.display='none',2600)}
+
+
+
+
+const memoryPhotoIds=[10,36,54,67,70,74];
+let memoryDeck=[],memoryOpen=[],memoryMatched=0,memoryMoves=0,memoryLock=false;
+function startMemoryGame(){
+ memoryDeck=memoryPhotoIds.flatMap((n,i)=>[{id:i,src:`assets/new_${String(n).padStart(2,'0')}.jpg`},{id:i,src:`assets/new_${String(n).padStart(2,'0')}.jpg`}]);
+ for(let i=memoryDeck.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[memoryDeck[i],memoryDeck[j]]=[memoryDeck[j],memoryDeck[i]]}
+ memoryOpen=[];memoryMatched=0;memoryMoves=0;memoryLock=false;
+ document.getElementById('memoryMoves').textContent='Lượt lật: 0';document.getElementById('memoryPairs').textContent='Đã tìm: 0/6';document.getElementById('memoryResult').textContent='Sẵn sàng chưa anh? ♥';document.getElementById('memoryContinue').disabled=true;document.getElementById('memoryContinue').textContent='HOÀN THÀNH GAME ĐỂ GẶP HAI BOSS →';document.getElementById('memoryGateHint').textContent='Tìm đủ 6 cặp ảnh để mở khóa vòng tiếp theo nha.';
+ document.getElementById('memoryGrid').innerHTML=memoryDeck.map((card,i)=>`<button class="memory-card" data-index="${i}" onclick="flipMemoryCard(${i})" aria-label="Lật thẻ ${i+1}"><span class="memory-inner"><span class="memory-face memory-back">♥<small>BQ28</small></span><span class="memory-face memory-front"><img src="${card.src}" alt="Ảnh hai đứa mình"></span></span></button>`).join('');
+}
+function flipMemoryCard(index){
+ if(memoryLock||memoryOpen.includes(index))return;
+ const card=document.querySelector(`.memory-card[data-index="${index}"]`);if(!card||card.classList.contains('matched'))return;
+ card.classList.add('flipped');memoryOpen.push(index);
+ if(memoryOpen.length===2){memoryMoves++;document.getElementById('memoryMoves').textContent='Lượt lật: '+memoryMoves;
+  const [a,b]=memoryOpen,first=memoryDeck[a],second=memoryDeck[b];
+  if(first.id===second.id){
+   document.querySelectorAll(`.memory-card[data-index="${a}"],.memory-card[data-index="${b}"]`).forEach(x=>{x.classList.add('matched');x.disabled=true});
+   memoryMatched++;memoryOpen=[];document.getElementById('memoryPairs').textContent=`Đã tìm: ${memoryMatched}/6`;
+   const quips=['Đúng cặp rồi! Hai đứa trong ảnh nhìn vẫn vui ghê.','Chuẩn luôn, trí nhớ người yêu vẫn còn tốt nha.','Một khoảnh khắc được tìm lại thành công!'];
+   document.getElementById('memoryResult').textContent=quips[(memoryMatched-1)%quips.length];
+   if(memoryMatched===6){document.getElementById('memoryResult').textContent='Hoàn thành! Album này anh nhớ gần như nằm lòng rồi đó. ♥';document.getElementById('memoryContinue').disabled=false;document.getElementById('memoryContinue').textContent='ĐÃ THẮNG! GẶP HAI BOSS →';document.getElementById('memoryGateHint').textContent='Mở khóa thành công. Qua vòng tiếp theo thôi Bin!';toast('Tìm đủ 6 cặp ảnh rồi!');celebrate()}
+  }else{
+   memoryLock=true;document.getElementById('memoryResult').textContent='Chưa trùng cặp rồi, thử nhớ vị trí nha anh 😼';
+   setTimeout(()=>{document.querySelectorAll(`.memory-card[data-index="${a}"],.memory-card[data-index="${b}"]`).forEach(x=>x.classList.remove('flipped'));memoryOpen=[];memoryLock=false},850);
+  }
+ }
+}
+const wishes=[
+ {emoji:'🧧',title:'ĐẠI CÁT · VẠN SỰ HANH THÔNG',text:'Tuổi 28 mở ra nhiều cánh cửa mới. Việc đang ấp ủ có đường đi, điều mong chờ có ngày thành, làm gì cũng gặp người tốt và cơ hội tốt.'},
+ {emoji:'💪',title:'THÂN TÂM AN KHANG',text:'Chúc anh luôn mạnh khỏe, ngủ ngon, ăn ngon, tinh thần nhẹ nhàng; đi xa bình an, về nhà an toàn, ít đau ốm và luôn tràn năng lượng.'},
+ {emoji:'💼',title:'CÔNG DANH TẤN TỚI',text:'Công việc thuận lợi, năng lực được công nhận, dự án hanh thông, deploy đâu xanh đó; gặp đồng đội tử tế, sếp biết lắng nghe, deadline luôn trong tầm kiểm soát.'},
+ {emoji:'💰',title:'TÀI LỘC ĐẦY NHÀ',text:'Tiền bạc đủ đầy, thu nhập tăng trưởng, cơ hội tốt tìm đến; chi tiêu thoải mái mà vẫn tích lũy vững vàng, thích gì cũng có thể tự thưởng cho mình.'},
+ {emoji:'🏡',title:'GIA ĐẠO BÌNH AN',text:'Gia đình luôn mạnh khỏe, thuận hòa, mọi người thương yêu và bình an; nhà lúc nào cũng là nơi ấm áp để trở về.'},
+ {emoji:'❤️',title:'TÌNH DUYÊN VIÊN MÃN',text:'Luôn được yêu thương, thấu hiểu và trân trọng. Hai đứa mình cùng vui, cùng khỏe, cùng đi thêm thật nhiều nơi và tạo thêm thật nhiều kỷ niệm.'},
+ {emoji:'✈️',title:'VẠN DẶM BÌNH AN',text:'Có thêm nhiều chuyến đi đáng nhớ, gặp cảnh đẹp, người hay, món ngon; đi đâu cũng thuận lợi và mang về toàn chuyện vui.'},
+ {emoji:'🌱',title:'MỌI ƯỚC MƠ ĐƠM HOA',text:'Những dự định còn pending sẽ sớm được approve. Điều anh kiên trì theo đuổi từng bước thành hình, công sức bỏ ra đều có kết quả xứng đáng.'},
+ {emoji:'🤝',title:'QUÝ NHÂN PHÙ TRỢ',text:'Trên đường đời luôn gặp người chân thành, bạn bè tốt, đồng nghiệp hợp ý; lúc khó có người giúp, lúc vui có người cùng chia sẻ.'},
+ {emoji:'🍜',title:'PHÚC LỘC TRỌN VỊ',text:'Mỗi ngày đều có chuyện vui để mong chờ, có món ngon để thưởng thức, có thời gian nghỉ ngơi và tận hưởng những điều giản dị.'},
+ {emoji:'🛡️',title:'BÌNH AN VÀ MAY MẮN',text:'Tai qua nạn khỏi, dữ hóa lành, đi đường an toàn, làm việc suôn sẻ; gặp chuyện khó cũng có cách tháo gỡ, mọi việc rồi sẽ ổn.'},
+ {emoji:'🐾',title:'MÈO NGOAN · NHÀ VUI',text:'Bo và Lựu luôn khỏe mạnh, ngoan ngoãn, ăn ngon ngủ kỹ; nhà có tiếng mèo, tiếng cười và thật nhiều ngày bình yên bên nhau.'}
+];
+const allBlessings=[
+ ['💪','Sức khỏe dồi dào, thân tâm an yên'],['🏡','Gia đình bình an, sum vầy hạnh phúc'],
+ ['💼','Công việc hanh thông, sự nghiệp thăng tiến'],['💰','Tài lộc đủ đầy, tiền vào như nước'],
+ ['❤️','Tình yêu bền lâu, luôn được trân trọng'],['✈️','Vạn dặm bình an, nhiều chuyến đi vui'],
+ ['🌱','Ước mơ thành hiện thực, mọi dự định thành công'],['🤝','Quý nhân phù trợ, bạn bè chân thành'],
+ ['🍀','May mắn gõ cửa, dữ hóa lành'],['🍜','Ăn ngon, ngủ ngon, tận hưởng cuộc sống'],
+ ['🐾','Bo và Lựu khỏe mạnh, luôn quấn quýt'],['✨','Tuổi mới rực rỡ, vạn sự như ý']
+];
+let wishSpinning=false,wishSpinCount=0;
+function drawFortune(){
+ if(wishSpinning)return;
+ wishSpinning=true;
+ const btn=document.getElementById('spinWishBtn'),cup=document.getElementById('samCup');
+ btn.disabled=true;btn.textContent='ĐANG XIN QUẺ…';
+ cup.classList.remove('sam-shake','sam-reveal');void cup.offsetWidth;cup.classList.add('sam-shake');
+ document.getElementById('wishResult').innerHTML='<span class="wheel-tease">Thành tâm xin quẻ… lộc lành đang tới 🍀</span>';
+ const index=Math.floor(Math.random()*wishes.length);
+ setTimeout(()=>{
+  cup.classList.remove('sam-shake');cup.classList.add('sam-reveal');wishSpinCount++;
+  const f=wishes[index],result=document.getElementById('wishResult');
+  result.innerHTML=`<div class="fortune-paper"><div class="fortune-top">THẺ XĂM SỐ ${String(index+1).padStart(2,'0')} · TUỔI 28</div><div class="fortune-seal">${f.emoji}</div><div class="fortune-grade">🌟 THƯỢNG THƯỢNG CÁT 🌟</div><h4>${f.title}</h4><p>${f.text}</p><div class="fortune-stamp">ĐÃ DUYỆT<br/>大吉</div></div><div class="all-blessings-title">VÀ ĐÂY LÀ TOÀN BỘ LỜI CHÚC KA GỬI ANH</div><div class="all-wishes">${allBlessings.map((w,i)=>`<span style="--wish-i:${i}">${w[0]} ${w[1]}</span>`).join('')}</div><div class="jackpot-foot">Không chỉ trúng một quẻ đâu nha. Ka chúc anh đủ đầy tất cả: sức khỏe, bình an, gia đình, tình yêu, công việc, tài lộc và những điều anh luôn mong muốn. Tuổi 28 thật rực rỡ nhé! ❤️</div>`;
+  btn.disabled=false;btn.textContent='XIN THÊM MỘT QUẺ 🍀';wishSpinning=false;celebrate();showerLuckyThings();
+ },2200);
+}
+function showerLuckyThings(){
+ const icons=['🍀','🐾','♡','✨','🐈'];
+ for(let i=0;i<34;i++){
+  const el=document.createElement('span');
+  el.className='lucky-rain';
+  el.textContent=icons[i%icons.length];
+  el.style.left=Math.random()*100+'vw';
+  el.style.animationDelay=(Math.random()*.8)+'s';
+  el.style.fontSize=(16+Math.random()*18)+'px';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),4200);
+ }
+}
+function spawnClover(){
+ const garden=document.getElementById('ambientGarden');
+ if(!garden)return;
+ garden.innerHTML='';
+ const pieces=['🍀','🐾','✦','♡'];
+ for(let i=0;i<9;i++){
+  const el=document.createElement('span');
+  el.className='garden-piece';
+  el.textContent=pieces[i%pieces.length];
+  el.style.left=(4+Math.random()*92)+'vw';
+  el.style.animationDelay=(-Math.random()*18)+'s';
+  el.style.animationDuration=(16+Math.random()*14)+'s';
+  el.style.fontSize=(13+Math.random()*13)+'px';
+  garden.appendChild(el);
+ }
+}
+
+document.getElementById('mainAudio').src=mainTracks[0];
+document.getElementById('cakeAudio').src='assets/music_03.mp3';
+document.getElementById('cakeAudio').loop=true;
+renderGallery();startMemoryGame();drawQuiz('cat');drawQuiz('net');spawnClover();
+document.querySelectorAll('.video-card video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('.video-card video').forEach(other=>{if(other!==v)other.pause()})));
+for(let i=0;i<9;i++){const sp=document.createElement('span');sp.className='sparkle';sp.textContent=['✦','♡','✧'][i%3];sp.style.left=(7+i*11)+'%';sp.style.animationDelay=(-i*.8)+'s';sp.style.fontSize=(12+(i%3)*8)+'px';document.body.appendChild(sp)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+
+// QR code for the deployed page; regenerate automatically when hosted on a public URL.
+const qr=document.createElement('img');qr.alt='QR invitation';qr.style.display='none';
+
+
+function showFinalBirthdayWish(){
+ const layer=document.getElementById('birthdayFinale');
+ if(!layer)return;
+ layer.classList.add('show');
+ celebrate();
+ setTimeout(()=>{if(layer.classList.contains('show'))celebrate();},420);
+ setTimeout(()=>{if(layer.classList.contains('show'))celebrate();},1050);
+}
+function closeFinalBirthdayWish(){
+ const layer=document.getElementById('birthdayFinale');
+ if(layer)layer.classList.remove('show');
+ closeFarewellVideo();
+}
+
+</script>
+<div class="farewell-video" id="farewellVideo" aria-label="Video chào tạm biệt">
+ <div class="farewell-video-inner">
+  <h2>Hai boss gửi Bin lời chào cuối 🐾</h2>
+  <p>Hai đoạn video nhỏ được ghép lại dành riêng cho Bin — xem tới cuối nha! ❤️</p>
+  <video id="farewellCatVideo" playsinline controls preload="metadata" poster="assets/farewell_cat.jpg" onended="showFinalBirthdayWish()">
+   <source src="assets/farewell_two_videos.mp4" type="video/mp4">
+   Trình duyệt chưa hỗ trợ video.
+  </video>
+  <div class="farewell-video-actions">
+   <button onclick="playFarewellVideo()">PHÁT VIDEO ▶</button>
+   <button id="farewellSoundBtn" onclick="toggleFarewellVideoSound()">BẬT TIẾNG 🔊</button>
+   <button class="secondary" onclick="closeFarewellVideo()">ĐÓNG THIỆP ✦</button>
+  </div>
+  <p id="farewellVideoStatus" aria-live="polite" style="margin-top:12px;font-size:12px"></p>
+ </div>
+</div>
+
+
+<div class="birthday-finale" id="birthdayFinale" role="dialog" aria-modal="true" aria-labelledby="finaleTitle">
+  <div class="finale-party-lights" aria-hidden="true">
+    <div class="party-light-wire"></div>
+    <div class="party-light-bulbs">
+      <i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i>
+    </div>
+    <div class="party-banner"><span>✦</span><b>HAPPY BIRTHDAY, BIN!</b><span>✦</span></div>
+  </div>
+ <div class="finale-stars" aria-hidden="true">✦　✧　♡　✦　✧　🐾　✦</div>
+ <div class="finale-card">
+  <div class="finale-kicker">MISSION COMPLETE · LEVEL 28 UNLOCKED</div>
+  <div class="finale-crown" aria-hidden="true">👑</div>
+  <h2 id="finaleTitle">HAPPY BIRTHDAY, BIN!</h2>
+  <div class="finale-divider"><span>✦</span><i></i><span>♡</span><i></i><span>✦</span></div>
+  <p class="finale-main">Chúc anh tuổi 28 thật rực rỡ!</p>
+  <p class="finale-wish">Chúc Bin luôn khỏe mạnh, bình an, gia đình ấm êm; công việc thuận lợi, dự định nào cũng deploy thành công, gặp nhiều quý nhân và có thật nhiều cơ hội hay.</p>
+  <p class="finale-wish">Mong tiền tài đủ đầy, những chuyến đi luôn vui, mỗi ngày đều có điều đáng mong chờ — và dù ngoài kia có bao nhiêu deadline, về nhà vẫn có Ka, Bo và Lựu đứng về phe anh. 🐈🐈</p>
+  <p class="finale-love">Cảm ơn anh vì đã là nhân vật chính trong chiếc project đặc biệt này.<br><b>Ka thương Bin. Chúc mừng sinh nhật anh! ❤️</b></p>
+  <div class="finale-signature">BUILT WITH LOVE · TESTED BY TWO BOSSES · DEPLOYED FOR BIN</div>
+  <button class="finale-close" onclick="closeFinalBirthdayWish()">ÔM MỘT CÁI RỒI KẾT THÚC NHA 🤍</button>
+ </div>
+ <div class="finale-bottom" aria-hidden="true">🎉　🐾　✨　HAPPY LEVEL 28　✨　🐾　🎉</div>
+</div>
+
+</body></html>
