@@ -442,6 +442,78 @@ button{touch-action:manipulation}
 }
 /* ===== end mobile polish ===== */
 
+
+/* ===== MOBILE TYPOGRAPHY + LAYOUT REFINEMENT v2 ===== */
+@media (max-width: 700px) {
+  html,body { width:100%; min-width:0; overflow-x:hidden; }
+  body { font-size:16px; line-height:1.58; }
+  main,.page { width:100%; min-width:0; }
+  .topbar { min-height:0; padding:12px 16px; align-items:center; justify-content:space-between; gap:10px; }
+  .brand { font-size:15px; letter-spacing:.04em; }
+  .topbar small { font-size:11px; line-height:1.35; }
+  .music-btn { flex:0 0 auto; font-size:11px; padding:10px 12px; white-space:nowrap; }
+  .hero { padding:30px 18px 34px; }
+  .hero-inner { width:100%; max-width:560px; margin:0 auto; display:flex; flex-direction:column; align-items:center; gap:14px; text-align:center; }
+  .hero .eyebrow { font-size:10px; letter-spacing:.12em; line-height:1.5; }
+  .hero-photo { display:block; width:min(68vw,260px); max-width:100%; height:auto; margin:2px auto; }
+  .hero h1 { width:100%; margin:4px 0; font-size:clamp(29px,8vw,42px); line-height:1.16; letter-spacing:0; overflow-wrap:normal; word-break:normal; }
+  .hero h1 span { display:block; margin-top:6px; font-size:.72em; line-height:1.25; }
+  .hero p { max-width:38ch; margin:0 auto; font-size:14px; line-height:1.65; }
+  .hero p br { display:none; }
+  .hero .tag { display:inline-flex; margin:2px 3px; }
+  .btn-row { justify-content:center; width:100%; }
+  .btn,.btn-row button { min-height:46px; padding:12px 18px; line-height:1.3; }
+  section.page { padding:34px 16px !important; }
+  .section-head { width:100%; max-width:620px; margin:0 auto 22px; text-align:center; }
+  .section-head .eyebrow { font-size:10px; line-height:1.5; letter-spacing:.1em; }
+  .section-head h2 { font-size:clamp(25px,7vw,34px); line-height:1.2; margin:8px 0 10px; overflow-wrap:normal; word-break:normal; }
+  .section-head p { max-width:42ch; margin:0 auto; font-size:14px; line-height:1.65; }
+  .section-head p br { display:none; }
+  .paper,.intro-grid { width:100%; min-width:0; }
+  .intro-grid { display:grid; grid-template-columns:minmax(0,1fr) !important; gap:18px; padding:18px !important; }
+  .intro-grid .portrait { display:block; width:min(72vw,280px); max-width:100%; height:auto; margin:0 auto; }
+  .intro-grid p,.paper p,.quote { font-size:14px; line-height:1.7; }
+  .grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+  .grid>* { min-width:0; }
+  .photo,.video-card,.play-card,.quiz,.terminal,.cake-wrap,.secret,.letter,.puzzle-card,.envelope-card,.xin-sam-card { min-width:0; max-width:100%; }
+  .photo img,.video-card img,.video-card video { display:block; width:100%; max-width:100%; }
+  .answers { grid-template-columns:minmax(0,1fr); }
+  .answers button,.quiz button { min-height:46px; line-height:1.4; }
+  .memory-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:7px; }
+  .memory-card { min-width:0; width:100%; }
+  .wheel-stage { flex-direction:column; align-items:center; }
+  .wheel-legend { width:100%; grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .cake-wrap { padding:16px 10px; }
+  .cake-scene { max-width:100%; }
+  .envelope-stage { width:100%; max-width:560px; margin-inline:auto; }
+  .envelope-card { width:100%; padding:26px 18px; }
+  .envelope-title { font-size:clamp(28px,8vw,38px); }
+  .envelope-card p { font-size:14px; line-height:1.65; }
+  .letter,.secret { overflow-wrap:break-word; word-break:normal; }
+  .birthday-finale { padding:12px; overflow-y:auto; }
+  .birthday-finale .finale-card { width:100%; max-width:520px; margin:96px auto 24px; padding:22px 16px; }
+  .finale-card h2 { font-size:clamp(26px,7.5vw,38px); line-height:1.16; }
+  .finale-wish,.finale-love { font-size:13px; line-height:1.65; }
+}
+@media (max-width:390px) {
+  .topbar { padding:10px 12px; }
+  .brand { font-size:13px; }
+  .topbar small { font-size:10px; }
+  .music-btn { font-size:10px; padding:9px 10px; }
+  section.page { padding:28px 12px !important; }
+  .hero { padding:26px 13px 30px; }
+  .hero h1 { font-size:clamp(27px,8.2vw,34px); }
+  .hero p { font-size:13px; }
+  .grid { gap:8px; }
+  .memory-grid { gap:5px; }
+  .wheel-legend { grid-template-columns:minmax(0,1fr); }
+  .intro-grid { padding:14px !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior:auto !important; }
+}
+/* ===== end mobile refinement v2 ===== */
+
 </style></head>
 <body>
 <header class="topbar"><div><div class="brand">✦ BIRTHDAY QUEST 28</div><small>Ka tự tay chuẩn bị một chút bất ngờ ♥</small></div><button class="music-btn" onclick="toggleMusic()">♫ Nhạc của tụi mình: <span id="musicState">TẮT</span></button></header><div id="musicPlayer" aria-hidden="true" style="position:fixed;width:0;height:0;overflow:hidden">
