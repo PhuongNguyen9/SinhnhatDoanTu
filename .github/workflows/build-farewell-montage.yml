@@ -32,7 +32,7 @@ jobs:
           OFFSET=$(awk -v d="$D1" 'BEGIN { x=d-1.2; if (x<0) x=0; printf "%.3f",x }')
           ffmpeg -y -i "$A" -i "$B" \
             -filter_complex "[0:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p[v0];[1:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p[v1];[v0][v1]xfade=transition=fade:duration=1.2:offset=${OFFSET},format=yuv420p[v]" \
-            -map "[v]" -an -c:v libx264 -preset medium -crf 21 -movflags +faststart "$OUT"
+            -map "[v]" -map 0:a? -c:v libx264 -preset medium -crf 21 -c:a aac -b:a 160k -movflags +faststart "$OUT"
           test -s "$OUT"
       - name: Commit generated montage
         run: |
