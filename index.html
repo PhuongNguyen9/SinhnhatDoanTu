@@ -758,7 +758,7 @@ let farewellVideoStage=0;
   layer.classList.add('open');
   v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Video 1/2 đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem đoạn chào cuối nha';});
  }
- advanceFarewellVideo(){
+ function advanceFarewellVideo(){
    const v=document.getElementById('farewellCatVideo');
    if(farewellVideoStage===0){
     farewellVideoStage=1;
