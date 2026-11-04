@@ -1,0 +1,48 @@
+name: Build farewell montage
+
+on:
+  push:
+    paths:
+      - "assets/farewell_two_videos.mp4"
+      - "assets/farewell_extra.mp4.mp4"
+      - ".github/workflows/build-farewell-montage.yml"
+
+permissions:
+  contents: write
+
+jobs:
+  montage:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Install FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+      - name: Create one continuous montage with a soft crossfade
+        run: |
+          set -euo pipefail
+          A="assets/farewell_two_videos.mp4"
+          B="assets/farewell_extra.mp4.mp4"
+          OUT="assets/farewell_montage.mp4"
+          D1=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$A")
+          D2=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$B")
+          OFFSET=$(awk -v d="$D1" 'BEGIN { x=d-1.2; if (x<0) x=0; printf "%.3f",x }')
+          ffmpeg -y -i "$A" -i "$B" \
+            -filter_complex "[0:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p[v0];[1:v]scale=1280:720:force_original_aspect_ratio=decrease,pad=1280:720:(ow-iw)/2:(oh-ih)/2,setsar=1,fps=30,format=yuv420p[v1];[v0][v1]xfade=transition=fade:duration=1.2:offset=${OFFSET},format=yuv420p[v]" \
+            -map "[v]" -an -c:v libx264 -preset medium -crf 21 -movflags +faststart "$OUT"
+          test -s "$OUT"
+      - name: Commit generated montage
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/farewell_montage.mp4
+          if git diff --cached --quiet; then
+            echo "Montage unchanged"
+          else
+            git commit -m "Build single farewell video montage"
+            git push
+          fi
