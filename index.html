@@ -528,6 +528,10 @@ button{touch-action:manipulation}
  .envelope-decor{display:none}
 }
 
+
+/* Final responsive pass: farewell video and finale */
+@media(max-width:700px){.farewell-video{padding:12px;overflow-y:auto;align-items:center}.farewell-video-inner{width:100%;max-width:560px;padding:14px 10px;margin:auto}.farewell-video h2{font-size:clamp(23px,6.5vw,32px);line-height:1.2;margin-bottom:8px}.farewell-video p{font-size:13px;line-height:1.55;margin-bottom:12px}.farewell-video video{width:100%;height:auto;max-height:58vh;aspect-ratio:3/4;object-fit:contain;border-radius:14px}.farewell-video-actions{display:grid;grid-template-columns:1fr;gap:8px;margin-top:12px}.farewell-video-actions button{width:100%;min-height:44px;white-space:normal}.birthday-finale{overflow-y:auto;align-items:flex-start;padding:12px}.birthday-finale .finale-card{margin:94px auto 22px;padding:22px 16px}.birthday-finale .finale-card p{line-height:1.65;overflow-wrap:normal;word-break:normal}}
+@media(max-width:390px){.farewell-video-inner{padding:10px 4px}.farewell-video video{max-height:52vh}.birthday-finale .finale-card{margin-top:84px;padding:18px 13px}}
 </style></head>
 <body>
 <header class="topbar"><div><div class="brand">✦ BIRTHDAY QUEST 28</div><small>Ka tự tay chuẩn bị một chút bất ngờ ♥</small></div><button class="music-btn" onclick="toggleMusic()">♫ Nhạc của tụi mình: <span id="musicState">TẮT</span></button></header><div id="musicPlayer" aria-hidden="true" style="position:fixed;width:0;height:0;overflow:hidden">
@@ -731,31 +735,38 @@ function showFarewellCat(){
  document.body.appendChild(wrap);
  setTimeout(()=>{wrap.remove();openFarewellVideo();},7500);
 }
-function openFarewellVideo(){
- const layer=document.getElementById('farewellVideo');
- layer.classList.add('open');
- const v=document.getElementById('farewellCatVideo');
- v.muted=true;v.currentTime=0;
- v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Video đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{
-  document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem đoạn chào cuối nha';
- });
-}
-function toggleFarewellVideoSound(){
- const v=document.getElementById('farewellCatVideo');
- v.muted=!v.muted;
- document.getElementById('farewellSoundBtn').textContent=v.muted?'BẬT TIẾNG 🔊':'TẮT TIẾNG 🔇';
- if(!v.paused)v.play().catch(()=>{});
-}
-function playFarewellVideo(){
- const v=document.getElementById('farewellCatVideo');v.muted=false;
- v.play().then(()=>document.getElementById('farewellVideoStatus').textContent='Đang phát lời chào cuối 🐾').catch(()=>{});
-}
-function closeFarewellVideo(){
- const layer=document.getElementById('farewellVideo');
- const v=document.getElementById('farewellCatVideo');
- v.pause();layer.classList.remove('open');
-}
-function celebrate(){
+let farewellVideoStage=0;
+ const farewellVideoOne='assets/farewell_two_videos.mp4';
+ const farewellVideoTwo='assets/farewell_extra.mp4.mp4';
+ function openFarewellVideo(){
+  const layer=document.getElementById('farewellVideo');
+  const v=document.getElementById('farewellCatVideo');
+  farewellVideoStage=0;v.src=farewellVideoOne;v.load();v.muted=true;v.currentTime=0;
+  layer.classList.add('open');
+  v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Video 1/2 đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem đoạn chào cuối nha';});
+ }
+ function advanceFarewellVideo(){
+  const v=document.getElementById('farewellCatVideo');
+  if(farewellVideoStage===0){
+   farewellVideoStage=1;v.src=farewellVideoTwo;v.load();v.currentTime=0;
+   document.getElementById('farewellVideoStatus').textContent='Đoạn cuối dành riêng cho Bin 🐾';
+   v.play().catch(()=>{document.getElementById('farewellVideoStatus').textContent='Đoạn cuối đã sẵn sàng · nhấn PHÁT VIDEO để xem nha';});
+  }else showFinalBirthdayWish();
+ }
+ function toggleFarewellVideoSound(){
+  const v=document.getElementById('farewellCatVideo');v.muted=!v.muted;
+  document.getElementById('farewellSoundBtn').textContent=v.muted?'BẬT TIẾNG 🔊':'TẮT TIẾNG 🔇';
+  if(!v.paused)v.play().catch(()=>{});
+ }
+ function playFarewellVideo(){
+  const v=document.getElementById('farewellCatVideo');v.muted=false;
+  v.play().then(()=>document.getElementById('farewellVideoStatus').textContent='Đang phát lời chào cuối 🐾').catch(()=>{});
+ }
+ function closeFarewellVideo(){
+  const layer=document.getElementById('farewellVideo'),v=document.getElementById('farewellCatVideo');
+  v.pause();layer.classList.remove('open');showFinalBirthdayWish();
+ }
+ function celebrate(){
  const colors=['#c69a45','#a83a32','#f0c96f','#6d9a63','#e9a6a2'];
  for(let b=0;b<5;b++){
   const x=12+Math.random()*76,y=12+Math.random()*42;
@@ -927,8 +938,12 @@ document.getElementById('cakeAudio').src='assets/music_03.mp3';
 document.getElementById('cakeAudio').loop=true;
 renderGallery();startMemoryGame();drawQuiz('cat');drawQuiz('net');spawnClover();
 document.querySelectorAll('.video-card video').forEach(v=>v.addEventListener('play',()=>document.querySelectorAll('.video-card video').forEach(other=>{if(other!==v)other.pause()})));
-for(let i=0;i<9;i++){const sp=document.createElement('span');sp.className='sparkle';sp.textContent=['✦','♡','✧'][i%3];sp.style.left=(7+i*11)+'%';sp.style.animationDelay=(-i*.8)+'s';sp.style.fontSize=(12+(i%3)*8)+'px';document.body.appendChild(sp)}
-document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLightbox()});
+for(let i=0;i<9;i++){const sp=document.createElement('span');sp.className='sparkle';sp.textContent=['✦','♡','✧'][i%function closeFinalBirthdayWish(){
+ const layer=document.getElementById('birthdayFinale');
+ if(layer)layer.classList.remove('show');
+ const videoLayer=document.getElementById('farewellVideo'),video=document.getElementById('farewellCatVideo');
+ if(video)video.pause();if(videoLayer)videoLayer.classList.remove('open');
+}r('keydown',e=>{if(e.key==='Escape')closeLightbox()});
 
 // QR code for the deployed page; regenerate automatically when hosted on a public URL.
 const qr=document.createElement('img');qr.alt='QR invitation';qr.style.display='none';
@@ -952,8 +967,8 @@ function closeFinalBirthdayWish(){
 <div class="farewell-video" id="farewellVideo" aria-label="Video chào tạm biệt">
  <div class="farewell-video-inner">
   <h2>Hai boss gửi Bin lời chào cuối 🐾</h2>
-  <p>Hai đoạn video nhỏ được ghép lại dành riêng cho Bin — xem tới cuối nha! ❤️</p>
-  <video id="farewellCatVideo" playsinline controls preload="metadata" poster="assets/farewell_cat.jpg" onended="showFinalBirthdayWish()">
+  <p>Hai đoạn video nối tiếp nhau dành riêng cho Bin — xem hoặc đóng thiệp bất cứ lúc nào nha! ❤️</p>
+  <video id="farewellCatVideo" playsinline controls preload="metadata" poster="assets/farewell_cat.jpg" onended="advanceFarewellVideo()">
    <source src="assets/farewell_two_videos.mp4" type="video/mp4">
    Trình duyệt chưa hỗ trợ video.
   </video>
