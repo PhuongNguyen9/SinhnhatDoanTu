@@ -970,7 +970,7 @@ for(let i=0;i<9;i++){
  sp.textContent=['✦','♡','✧'][i%3];
  document.body.appendChild(sp);
 }
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();closeFarewellVideo();closeFinalBirthdayWish();}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeLightbox();}});
  
 // QR code for the deployed page; regenerate automatically when hosted on a public URL.
 const qr=document.createElement('img');qr.alt='QR invitation';qr.style.display='none';
@@ -986,8 +986,11 @@ function showFinalBirthdayWish(){
 }
 function closeFinalBirthdayWish(){
  const layer=document.getElementById('birthdayFinale');
+ const videoLayer=document.getElementById('farewellVideo');
+ const video=document.getElementById('farewellCatVideo');
  if(layer)layer.classList.remove('show');
- closeFarewellVideo();
+ if(video){video.pause();video.removeAttribute('src');video.load();}
+ if(videoLayer)videoLayer.classList.remove('open','video-transition');
 }
 
 </script>
