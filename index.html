@@ -748,34 +748,16 @@ function showFarewellCat(){
  document.body.appendChild(wrap);
  setTimeout(()=>{wrap.remove();openFarewellVideo();},7500);
 }
-let farewellVideoStage=0;
- const farewellVideoOne='assets/farewell_two_videos.mp4';
- const farewellVideoTwo='assets/farewell_extra.mp4.mp4';
- function openFarewellVideo(){
+function openFarewellVideo(){
   const layer=document.getElementById('farewellVideo');
   const v=document.getElementById('farewellCatVideo');
-  farewellVideoStage=0;v.src=farewellVideoOne;v.load();v.muted=true;v.currentTime=0;
+  v.src='assets/farewell_montage.mp4';v.load();v.muted=true;v.currentTime=0;
   layer.classList.add('open');
-  v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Video 1/2 đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem đoạn chào cuối nha';});
+  v.play().then(()=>{document.getElementById('farewellVideoStatus').textContent='Montage lời chào cuối đang phát · chạm “Bật tiếng” để nghe âm thanh nha';}).catch(()=>{document.getElementById('farewellVideoStatus').textContent='Chạm “Phát video” để xem lời chào cuối nha';});
  }
  function advanceFarewellVideo(){
-   const v=document.getElementById('farewellCatVideo');
-   if(farewellVideoStage===0){
-    farewellVideoStage=1;
-    const layer=document.getElementById('farewellVideo');
-    layer.classList.add('video-transition');
-    setTimeout(()=>{
-     v.src=farewellVideoTwo;v.load();v.currentTime=0;
-     v.play().then(()=>{
-      document.getElementById('farewellVideoStatus').textContent='Đoạn video cuối dành riêng cho Bin 🐾';
-      layer.classList.remove('video-transition');
-     }).catch(()=>{
-      document.getElementById('farewellVideoStatus').textContent='Đoạn cuối đã sẵn sàng · nhấn PHÁT VIDEO để xem nha';
-      layer.classList.remove('video-transition');
-     });
-    },220);
-   }else showFinalBirthdayWish();
-  }
+  showFinalBirthdayWish();
+ }
   function toggleFarewellVideoSound(){
   const v=document.getElementById('farewellCatVideo');v.muted=!v.muted;
   document.getElementById('farewellSoundBtn').textContent=v.muted?'BẬT TIẾNG 🔊':'TẮT TIẾNG 🔇';
@@ -997,9 +979,9 @@ function closeFinalBirthdayWish(){
 <div class="farewell-video" id="farewellVideo" aria-label="Video chào tạm biệt">
  <div class="farewell-video-inner">
   <h2>Hai boss gửi Bin lời chào cuối 🐾</h2>
-  <p>Hai đoạn video nối tiếp nhau dành riêng cho Bin — xem hoặc đóng thiệp bất cứ lúc nào nha! ❤️</p>
+  <p>Ba khoảnh khắc được ghép thành một thước phim liền mạch dành riêng cho Bin — xem hoặc đóng thiệp bất cứ lúc nào nha! ❤️</p>
   <video id="farewellCatVideo" playsinline controls preload="metadata" poster="assets/farewell_cat.jpg" onended="advanceFarewellVideo()">
-   <source src="assets/farewell_two_videos.mp4" type="video/mp4">
+   <source src="assets/farewell_montage.mp4" type="video/mp4">
    Trình duyệt chưa hỗ trợ video.
   </video>
   <div class="farewell-video-actions">
